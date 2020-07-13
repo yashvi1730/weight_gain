@@ -1,0 +1,1150 @@
+<!DOCTYPE html>
+{% load static %}
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css" integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">
+    <link rel="stylesheet" href="{% static 'css/homepage.css'%}">
+    <script >
+        function changeStatus()
+        {
+            var status = document.getElementById("purpose");
+            if(status.value=="PR" || status.value=="PC")
+            {
+                 document.getElementById("ques6_1").style.visibility="hidden";
+                 document.getElementById("ques6_21").style.visibility="hidden";
+                 document.getElementById("ques6_22").style.visibility="hidden";
+                 document.getElementById("ques6_23").style.visibility="hidden";
+                 document.getElementById("ques6_24").style.visibility="hidden";
+                
+            }
+            else
+            {
+                document.getElementById("ques6_1").style.visibility="visible";
+                document.getElementById("ques6_21").style.visibility="visible";
+                document.getElementById("ques6_22").style.visibility="visible";
+                document.getElementById("ques6_23").style.visibility="visible";
+                document.getElementById("ques6_24").style.visibility="visible";
+                
+            }
+
+            
+            
+        }
+
+        
+    </script>
+    <style type="text/css"> 
+        .selectt { 
+           
+            display: none; 
+            
+        } 
+
+
+        
+
+        
+    </style> 
+
+
+    
+    
+</head>
+<body style="background-color:cyan">
+    <div class="container" style="background-color:white">
+        <form method="POST"  enctype="multipart/form-data">
+            {% csrf_token %}
+            <div class="row">
+                <div class="col-md-2">
+                    <label for="name"><strong>Name</strong></label>
+                </div>
+                <div class="col-md-4">
+                    <input style="width:300px;" type="text" id="name" name="name" placeholder="Your name.." required>
+                </div>
+                <div class="col-md-2">
+                    <label for="email"><strong>Email</strong></label>
+                </div>
+                <div class="col-md-4">
+                    <input style="width:300px;" type="email" id="email" name="email" Placeholder="Your email.." required>
+                </div>
+            </div>
+            <br/>
+            <br/>
+
+            <div class="row" style="margin-left: 410px;">
+                <p><strong>Please enter your vitals</strong></p>
+            </div>
+
+            <div class="row">
+                <div class="col-md-2">
+                    <label for="dob"><strong>Date of Birth</strong></label>
+                </div>
+                <div class="col-md-4">
+                    <input style="width:300px;" type="date" id="dob" name="dob" required>
+                </div>
+                <div class="col-md-2">
+                    <label for="weight"><strong>Weight(Kgs)</strong></label>
+                </div>
+                <div class="col-md-4">
+                    <input style="width:300px;" type="number" id="weight" name="weight" Placeholder="Your weight.." required>
+                </div>
+            </div>
+
+            <div class="row">
+
+                <div class="col-md-2">
+                    <label for="height_feet"><strong>Height</strong></label>
+                </div>
+                <div class="col-md-2">
+                    <input style="width:100px;" type="number" id="height_feet" name="height_feet"  required>ft
+                </div>
+
+                <div class="col-md-2">
+                    <input style="width:100px;" type="number" id="height_inches" name="height_inches"  required>inch
+                </div>
+            </div>
+
+            <br/>
+            <br/>
+
+            
+            <div class="row" style="margin-left: 400px;margin-bottom: -20px;">
+                <p><strong>Please enter your measurements</strong></p>
+            </div>
+
+            <div class="row" style="margin-left: 350px;">
+                <p>(Please measure the fullest part of your hip and waist)</p>
+            </div>
+
+            <div class="row">
+                <div class="col-md-2">
+                    <label for="waist"><strong>Waist Size</strong></label>
+                </div>
+                <div class="col-md-4">
+                    <input style="width:300px;" type="number" id="waist" name="waist" required>
+                </div>
+                <div class="col-md-2">
+                    <label for="hip"><strong>Hip Size</strong></label>
+                </div>
+                <div class="col-md-4">
+                    <input style="width:300px;" type="number" id="hip" name="hip" required>
+                </div>
+            </div>
+
+            <br/>
+
+            <div class="row">
+                <div class="col-md-6">
+                    <label for="purpose"><strong>Select the option that best describe your consultation.</strong></label>
+                </div>
+                <div class="col-md-6">
+                    <select name="purpose" id="purpose" onchange="changeStatus()">
+                        <option value="GW">I want to know why I might have gained weight</option>
+                        <option value="FR">I am more concerned about future risks from this weight gain</option>
+                        <option value="BC">Want to prepare my body for conception</option>
+                        <option value="PR">Need to get my prescription renewed</option>
+                        <option value="SO">Need to get a second opinion</option>
+                        <option value="PC">Follow up for previous consultation</option>
+                        <option value="other">Other</option>
+                    </select>
+                </div>
+            </div>
+
+            <br/>
+            <br/>
+
+            <div class="row">
+                <div class="col-md-6">
+                    <label><strong>Are you someone who has had a baby within the last one year?</strong></label>
+                </div>
+                <div class="col-md-6">
+                    <select name="have_baby" id="have_baby">
+                        <option value="y">Yes</option>
+                        <option value="n">No</option>
+                    </select>
+                </div>
+            </div>
+
+            <br/>
+            <br/>
+
+            <div class="row" style="margin-left: 5px;" id="ques6_1">
+                <p><strong>Please select from this list all existing condition(s) that you have.</strong></p>
+            </div>
+
+            <div class="row" style="margin-bottom: -30px;" id="ques6_21">
+                <div class="col-md-1"  style="margin:auto">
+                <input type="checkbox"  id="hyperprolactinemia" name="hyperprolactinemia" value="true"></input>
+                </div>
+                <div class="col-md-5"  style="margin:auto">
+                    <label for="hyperprolactinemia">Hyperprolactinemia</label>
+                </div>
+                <div class="col-md-3"  style="margin:auto">
+                    <label for="hyperprolactinemia_days">How long has it been since this was diagnosed?</label>
+                </div>
+                <div class="col-md-2"  style="margin:auto">
+                    <input type="number" id="hyperprolactinemia_days" name="hyperprolactinemia_days" ></input>
+                </div>
+
+            </div>
+
+            <div class="row" style="margin-bottom: -30px;" id="ques6_22">
+                <div class="col-md-1"  style="margin:auto">
+                <input type="checkbox"  id="pcos_pcod" name="pcos_pcod" value="true"></input>
+                </div>
+                <div class="col-md-5"  style="margin:auto">
+                    <label for="pcos_pcod">Pcos/Pcod</label>
+                </div>
+                <div class="col-md-3"  style="margin:auto">
+                    <label for="pcos_pcod_days">How long has it been since this was diagnosed?</label>
+                </div>
+                <div class="col-md-2"  style="margin:auto">
+                    <input type="number" id="pcos_pcod_days" name="pcos_pcod_days" ></input>
+                </div>
+            </div>
+
+            <div class="row" style="margin-bottom: -30px;" id="ques6_23">
+                <div class="col-md-1"  style="margin:auto">
+                <input type="checkbox"  id="hypothyroidism" name="hypothyroidism" value="true"></input>
+                </div>
+                <div class="col-md-5"  style="margin:auto">
+                    <label for="hypothyroidism">Hypothyroidism</label>
+                </div>
+                <div class="col-md-3"  style="margin:auto">
+                    <label for="hypothyroidism_days">How long has it been since this was diagnosed?</label>
+                </div>
+                <div class="col-md-2"  style="margin:auto">
+                    <input type="number" id="hypothyroidism_days" name="hypothyroidism_days" ></input>
+                </div>
+            </div>
+
+            <div class="row" style="margin-bottom: -30px;" id="ques6_24">
+                <div class="col-md-1"  style="margin:auto">
+                <input type="checkbox"  id="other" name="other" value="true"></input>
+                </div>
+                <div class="col-md-5"  style="margin:auto">
+                    <label for="other">Other</label>
+                </div>
+                <div class="col-md-3"  style="margin:auto">
+                    <label for="other_days">How long has it been since this was diagnosed?</label>
+                </div>
+                <div class="col-md-2"  style="margin:auto">
+                    <input type="number" id="other_days" name="other_days" ></input>
+                </div>
+            </div>
+            <br/>
+            <br/>
+
+            
+
+           
+                <div class="row" >
+                    <div class="col-md-6">
+                        <label for="symptoms7"><strong>Any symptoms that you are particularly concerned about?</strong></label>
+                    </div>
+                    <div style="margin-left: 15px;">
+                        <input style="width: 525px;" type="text" id="symptoms7" name="symptoms7"></input>
+                    </div>
+                </div>
+               
+
+            
+
+           
+
+            <br/>
+            <br/>
+            <div class="row">
+                <div class="col-md-6">
+                    <p><strong>On which month did you last get your menstrual period?</strong></p>
+                </div>
+                <div class="col-md-3">
+                    <select name="month8" id="month8">
+                        <option value="JAN">JAN</option>
+                        <option value="FEB">FEB</option>
+                        <option value="MAR">MAR</option>
+                        <option value="APR">APR</option>
+                        <option value="MAY">MAY</option>
+                        <option value="JUN">JUN</option>
+                        <option value="JUL">JUL</option>
+                        <option value="AUG">AUG</option>
+                        <option value="SEP">SEP</option>
+                        <option value="OCT">OCT</option>
+                        <option value="NOV">NOV</option>
+                        <option value="DEC">DEC</option>
+                        
+                    </select>
+                </div>
+                <div class="col-md-3">
+                    <select name="year8" id="year8">
+                        <option value="2019">2019</option>
+                        <option value="2020">2020</option>
+                    </select>
+                </div>
+            </div>
+
+            <br/>
+            <br/>
+
+            <div class="row">
+                <div class="col-md-5">
+                    <p><strong>Please enter how much weight you gained and in how much time</strong></p>
+                </div>
+                <div class="col-md-2">
+                    <input style="width:200px;margin-left: 95px;" type="number" id="weight9" name="weight9" required>
+                </div>
+                <div class="col-md-1">
+                    <p style="margin-left: 110px;margin-top: 20px;">Kgs</p>
+                </div>
+                <div class="col-md-2">
+                    <input style="width:100px;margin-left: 95px;" type="number" id="time9" name="time9" required>
+                </div>
+                <div class="col-md-2">
+                    <select  style="width: 100px;" name="time9_d" id="time9_d">
+                        <option value="d">days</option>
+                        <option value="m">months</option>
+                        <option value="y">years</option>
+                    </select>
+                </div>
+            </div>
+            <br/>
+
+            <div class="row" style="margin-left: 5px;">
+                <p><strong>Please enter details of all symptoms that you noticed apart from weight gain</strong></p>
+            </div>
+
+            <div class="row" style="margin-bottom: -30px;">
+                <div class="col-md-1"  style="margin:auto">
+                    <input type="checkbox"  id="hairLoss" name="hairLoss" value="true"></input>
+                </div>
+                <div class="col-md-4"  style="margin:auto">
+                    <label for="hairLoss">Hair Loss</label>
+                </div>
+                <div class="col-md-1"  style="margin:auto">
+                    <input style="width: 100px;"type="range"  min="1" max="10"    id="hairLossRange" name="hairLossRange"></input>
+                </div>
+                <div class="col-md-3"  style="margin:auto"> 
+                    <input style="margin-left: 95px;" type="text" id="hairLossTime" name="hairLossTime" >
+                </div>
+                <div class="col-md-3"  style="margin:auto">
+                    <select   name="hairLossTimeType" id="hairLossTimeType">
+                        <option value="d">days</option>
+                        <option value="m">months</option>
+                        <option value="y">years</option>
+                    </select>
+                </div>
+
+            </div>
+            <br/>
+
+
+            <div class="row" style="margin-bottom: -30px;">
+                <div class="col-md-1"  style="margin:auto">
+                    <input type="checkbox"  id="acneLoss" name="acneLoss" value="true"></input>
+                </div>
+                <div class="col-md-4"  style="margin:auto">
+                    <label for="acneLoss">Acne</label>
+                </div>
+                <div class="col-md-1"  style="margin:auto">
+                    <input style="width: 100px;"type="range"  min="1" max="10"    id="acneLossRange" name="acneLossRange"></input>
+                </div>
+                <div class="col-md-3"  style="margin:auto">
+                    <input style="margin-left: 95px;" type="text" id="acneLossTime" name="acneLossTime" >
+                </div>
+                <div class="col-md-3"  style="margin:auto">
+                    <select   name="acneLossTimeType" id="acneLossTimeType">
+                        <option value="d">days</option>
+                        <option value="m">months</option>
+                        <option value="y">years</option>
+                    </select>
+                </div>
+
+            </div>
+
+            <br/>
+
+            <div class="row" style="margin-bottom: -30px;">
+                <div class="col-md-1"  style="margin:auto">
+                    <input type="checkbox"  id="missedPeriod" name="missedPeriod" value="true"></input>
+                </div>
+                <div class="col-md-4"  style="margin:auto">
+                    <label for="missedPeriod">Missed/Irregular Period</label>
+                </div>
+                <div class="col-md-1">
+                    
+                </div>
+                <div class="col-md-3"  style="margin:auto">
+                    <input style="margin-left: 95px;" type="text" id="missedPeriodTime" name="missedPeriodTime" >
+                </div>
+                <div class="col-md-3"  style="margin:auto">
+                    <select   name="missedPeriodTimeType" id="missedPeriodTimeType">
+                        <option value="d">days</option>
+                        <option value="m">months</option>
+                        <option value="y">years</option>
+                    </select>
+                </div>
+
+            </div>
+
+
+            <br/>
+
+            <div class="row" style="margin-bottom: -30px;">
+                <div class="col-md-1"  style="margin:auto">
+                    <input type="checkbox"  id="extraHair" name="extraHair" value="true"></input>
+                </div>
+                <div class="col-md-4"  style="margin:auto">
+                    <label for="extraHair">Extra hair growth on body and face</label>
+                </div>
+                <div class="col-md-1">
+                    <input style="width: 100px;"type="range"  min="1" max="10"    id="extraHairRange" name="extraHairRange"></input>
+                </div>
+                <div class="col-md-3"  style="margin:auto">
+                    <input style="margin-left: 95px;" type="text" id="extraHairTime" name="extraHairTime" >
+                </div>
+                <div class="col-md-3"  style="margin:auto">
+                    <select   name="extraHairTimeType" id="extraHairTimeType">
+                        <option value="d">days</option>
+                        <option value="m">months</option>
+                        <option value="y">years</option>
+                    </select>
+                </div>
+
+            </div>
+
+            <br/>
+
+            <div class="row" style="margin-bottom: -30px;">
+                <div class="col-md-1"  style="margin:auto">
+                    <input type="checkbox"  id="constipation" name="constipation" value="true"></input>
+                </div>
+                <div class="col-md-4"  style="margin:auto">
+                    <label for="constipation">Constipation</label>
+                </div>
+                <div class="col-md-1">
+                </div>
+                <div class="col-md-3"  style="margin:auto">
+                </div>
+                <div class="col-md-3"  style="margin:auto">
+                </div>
+
+            </div>
+            <br/>
+
+            <div class="row" style="margin-bottom: -30px;">
+                <div class="col-md-1"  style="margin:auto">
+                    <input type="checkbox"  id="skinPigmentation" name="skinPigmentation" value="true"></input>
+                </div>
+                <div class="col-md-4"  style="margin:auto">
+                    <label for="skinPigmentation">Skin Pigmentation/thickness/dryness</label>
+                </div>
+                <div class="col-md-1">
+                </div>
+                <div class="col-md-3"  style="margin:auto">
+                </div>
+                <div class="col-md-3"  style="margin:auto">
+                </div>
+
+            </div>
+
+            <br/>
+
+            <div class="row" style="margin-bottom: -30px;">
+                <div class="col-md-1"  style="margin:auto">
+                    <input type="checkbox"  id="slowHeartbeat" name="slowHeartbeat" value="true"></input>
+                </div>
+                <div class="col-md-4"  style="margin:auto">
+                    <label for="slowHeartbeat">Slow Heartbeat</label>
+                </div>
+                <div class="col-md-1">
+                </div>
+                <div class="col-md-3"  style="margin:auto">
+                </div>
+                <div class="col-md-3"  style="margin:auto">
+                </div>
+
+            </div>
+
+            <br/>
+
+            <div class="row" style="margin-bottom: -30px;">
+                <div class="col-md-1"  style="margin:auto">
+                    <input type="checkbox"  id="headache" name="headache" value="true"></input>
+                </div>
+                <div class="col-md-4"  style="margin:auto">
+                    <label for="headache">Headache</label>
+                </div>
+                <div class="col-md-1">
+                    <input style="width: 100px;"type="range"  min="1" max="10"    id="headacheRange" name="headacheRange"></input>
+                </div>
+                <div class="col-md-3"  style="margin:auto">
+                    <input style="margin-left: 95px;" type="text" id="headacheTime" name="headacheTime" >
+                </div>
+                <div class="col-md-3"  style="margin:auto">
+                    <select   name="headacheTimeType" id="headacheTimeType">
+                        <option value="d">days</option>
+                        <option value="m">months</option>
+                        <option value="y">years</option>
+                    </select>
+                </div>
+
+            </div>
+
+            <br/>
+
+            <div class="row" style="margin-bottom: -30px;">
+                <div class="col-md-1"  style="margin:auto">
+                    <input type="checkbox"  id="dischargeNipple" name="dischargeNipple" value="true"></input>
+                </div>
+                <div class="col-md-4"  style="margin:auto">
+                    <label for="dischargeNipple">Discharge from Nipple</label>
+                </div>
+                <div class="col-md-1">
+                </div>
+                <div class="col-md-3"  style="margin:auto">
+                </div>
+                <div class="col-md-3"  style="margin:auto">
+                </div>
+
+            </div>
+
+            <br/>
+
+            <div class="row" style="margin-bottom: -30px;">
+                <div class="col-md-1"  style="margin:auto">
+                    <input type="checkbox"  id="moodSwings" name="moodSwings" value="true"></input>
+                </div>
+                <div class="col-md-4"  style="margin:auto">
+                    <label for="moodSwings">Mood Swings/Lethargy/Sluggishness</label>
+                </div>
+                <div class="col-md-1">
+                </div>
+                <div class="col-md-3"  style="margin:auto">
+                </div>
+                <div class="col-md-3"  style="margin:auto">
+                </div>
+
+            </div>
+
+            <br/>
+
+            <div class="row" style="margin-bottom: -30px;">
+                <div class="col-md-1"  style="margin:auto">
+                    <input type="checkbox"  id="others" name="others" value="true"></input>
+                </div>
+                <div class="col-md-4"  style="margin:auto">
+                    <label for="others">Others</label>
+                </div>
+                <div class="col-md-1">
+                    <input style="width: 100px;"type="range"  min="1" max="10"    id="othersRange" name="othersRange"></input>
+                </div>
+                <div class="col-md-3"  style="margin:auto">
+                    <input style="margin-left: 95px;" type="text" id="othersTime" name="othersTime" >
+                </div>
+                <div class="col-md-3"  style="margin:auto">
+                    <select   name="othersTimeType" id="othersTimeType">
+                        <option value="d">days</option>
+                        <option value="m">months</option>
+                        <option value="y">years</option>
+                    </select>
+                </div>
+
+            </div>
+
+
+
+
+
+
+            <br/>
+            <br/>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+            <div class="row" style="margin-left: 5px;">
+                <p><strong>In relation to your menstrual problems, please select all statements that apply to you</strong></p>
+            </div>
+
+            <div class="row" style="margin-bottom: -30px;">
+                <div class="col-md-1"  style="margin:auto">
+                <input type="checkbox"  id="stoppedPeriods" name="stoppedPeriods" value="true"></input>
+                </div>
+                <div class="col-md-4"  style="margin:auto">
+                    <label for="stoppedPeriods">Stopped getting menstrual periods</label>
+                </div>
+                <div class="col-md-3"  style="margin:auto">
+                    <label>On which month did you last get your period?</label>
+                </div>
+                <div class="col-md-2"  style="margin:auto">
+                    <select name="lastPeriodTimeMonth" id="lastPeriodTimeMonth">
+                        <option value="JAN">JAN</option>
+                        <option value="FEB">FEB</option>
+                        <option value="MAR">MAR</option>
+                        <option value="APR">APR</option>
+                        <option value="MAY">MAY</option>
+                        <option value="JUN">JUN</option>
+                        <option value="JUL">JUL</option>
+                        <option value="AUG">AUG</option>
+                        <option value="SEP">SEP</option>
+                        <option value="OCT">OCT</option>
+                        <option value="NOV">NOV</option>
+                        <option value="DEC">DEC</option>
+                        
+                    </select>
+                </div>
+                <div class="col-md-2" style="margin:auto">
+                    <select  style="width: 100px;" name="lastPeriodTimeYear" id="lastPeriodTimeYear">
+                        <option value="2019">2019</option>
+                        <option value="2020">2020</option>
+                    </select>
+                </div>
+                
+
+            </div>
+
+            <div class="row" style="margin-bottom: -30px;">
+                <div class="col-md-1"  style="margin:auto">
+                <input type="checkbox"  id="lessThanSixCycles" name="lessThanSixCycles" value="true"></input>
+                </div>
+                <div class="col-md-11"  style="margin:auto">
+                    <label for="lessThanSixCycles">less than 6 cycles a year</label>
+                </div>
+            </div>
+
+            <div class="row" style="margin-bottom: -30px;">
+                <div class="col-md-1"  style="margin:auto">
+                <input type="checkbox"  id="moreThanSixCycles" name="moreThanSixCycles" value="true"></input>
+                </div>
+                <div class="col-md-11"  style="margin:auto">
+                    <label for="moreThanSixCycles">more than 6 cycles a year</label>
+                </div>
+            </div>
+
+            <div class="row" style="margin-bottom: -30px;">
+                <div class="col-md-1"  style="margin:auto">
+                <input type="checkbox"  id="countinuosFlow" name="countinuosFlow" value="true"></input>
+                </div>
+                <div class="col-md-11"  style="margin:auto">
+                    <label for="countinuosFlow">Continuous flow for more than 7 days</label>
+                </div>
+            </div>
+
+            <br/>
+            <br/>
+            <div class="row" style="margin-left: 5px;">
+                <p><strong>In relation to your menstrual problems, please select all statements that apply to you</strong></p>
+            </div>
+
+            <div class="row">
+                <p style="margin-left: 820px;">For how long?</p>
+            </div>
+
+            <div class="row">
+                <div class="col-md-1"  style="margin:auto">
+                    <input type="checkbox"  id="currentlyNotUnderAnyMedication" name="currentlyNotUnderAnyMedication" value="true"></input>
+                </div>
+                <div class="col-md-5"  style="margin:auto">
+                    <label for="currentlyNotUnderAnyMedication">Currently not under medication</label>
+                </div>
+                <div class="col-md-3">
+                    <input style="margin-left: 95px;" type="text" id="currentlyNotUnderAnyMedicationDuration" name="currentlyNotUnderAnyMedicationDuration" >
+                </div>
+                <div class="col-md-3">
+                    <select   name="currentlyNotUnderAnyMedicationDurationType" id="currentlyNotUnderAnyMedicationDurationType">
+                        <option value="d">days</option>
+                        <option value="m">months</option>
+                        <option value="y">years</option>
+                    </select>
+                </div>
+
+            </div>
+
+            <div class="row">
+                <div class="col-md-1"  style="margin:auto">
+                    <input type="checkbox"  id="diabestes" name="diabestes" value="true"></input>
+                </div>
+                <div class="col-md-5"  style="margin:auto">
+                    <label for="diabestes">Diabetes (insulin (Humulin N, Lantus), glipizide, pioglitazone)</label>
+                </div>
+                <div class="col-md-3">
+                    <input style="margin-left: 95px;" type="text" id="diabestesDuration" name="diabestesDuration" >
+                </div>
+                <div class="col-md-3">
+                    <select   name="diabestesDurationType" id="diabestesDurationType">
+                        <option value="d">days</option>
+                        <option value="m">months</option>
+                        <option value="y">years</option>
+                    </select>
+                </div>
+
+            </div>
+
+            <div class="row">
+                <div class="col-md-1"  style="margin:auto">
+                    <input type="checkbox"  id="migrane" name="migrane" value="true"></input>
+                </div>
+                <div class="col-md-5"  style="margin:auto">
+                    <label for="migrane">migraine</label>
+                </div>
+                <div class="col-md-3">
+                    <input style="margin-left: 95px;" type="text" id="migraneDuration" name="migraneDuration" >
+                </div>
+                <div class="col-md-3">
+                    <select   name="migraneDurationType" id="migraneDurationType">
+                        <option value="d">days</option>
+                        <option value="m">months</option>
+                        <option value="y">years</option>
+                    </select>
+                </div>
+
+            </div>
+
+            <div class="row">
+                <div class="col-md-1"  style="margin:auto">
+                    <input type="checkbox"  id="medicationHighBloodPressure" name="medicationHighBloodPressure" value="true"></input>
+                </div>
+                <div class="col-md-5"  style="margin:auto">
+                    <label for="medicationHighBloodPressure">High Blood pressure(metoprolol (Lopressor), atenolol (Tenormin), propranolol (Inderal))</label>
+                </div>
+                <div class="col-md-3">
+                    <input style="margin-left: 95px;" type="text" id="medicationHighBloodPressureDuration" name="medicationHighBloodPressureDuration" >
+                </div>
+                <div class="col-md-3">
+                    <select   name="medicationHighBloodPressureDurationType" id="medicationHighBloodPressureDurationType">
+                        <option value="d">days</option>
+                        <option value="m">months</option>
+                        <option value="y">years</option>
+                    </select>
+                </div>
+
+            </div>
+
+            <div class="row">
+                <div class="col-md-1"  style="margin:auto">
+                    <input type="checkbox"  id="medicationMentalHealthDisorder" name="medicationMentalHealthDisorder" value="true"></input>
+                </div>
+                <div class="col-md-5"  style="margin:auto">
+                    <label for="medicationMentalHealthDisorder">Mental health disorder  (paroxetine (Paxil), sertraline (Zoloft), amitriptyline, trazodone, alprazolam (Xanax), diazepam (Valium)</label>
+                </div>
+                <div class="col-md-3">
+                    <input style="margin-left: 95px;" type="text" id="medicationMentalHealthDisorderDuration" name="medicationMentalHealthDisorderDuration" >
+                </div>
+                <div class="col-md-3">
+                    <select   name="medicationMentalHealthDisorderDurationType" id="medicationMentalHealthDisorderDurationType">
+                        <option value="d">days</option>
+                        <option value="m">months</option>
+                        <option value="y">years</option>
+                    </select>
+                </div>
+
+            </div>
+
+            <div class="row">
+                <div class="col-md-1"  style="margin:auto">
+                    <input type="checkbox"  id="steroidTherapy" name="steroidTherapy" value="true"></input>
+                </div>
+                <div class="col-md-5"  style="margin:auto">
+                    <label for="steroidTherapy">Steroid therapy (prednisone, norethindrone, Nexplanon, tamoxifen)</label>
+                </div>
+                <div class="col-md-3">
+                    <input style="margin-left: 95px;" type="text" id="steroidTherapyDuration" name="steroidTherapyDuration" >
+                </div>
+                <div class="col-md-3">
+                    <select   name="steroidTherapyDurationType" id="steroidTherapyDurationType">
+                        <option value="d">days</option>
+                        <option value="m">months</option>
+                        <option value="y">years</option>
+                    </select>
+                </div>
+
+            </div>
+
+            <div class="row">
+                <div class="col-md-1"  style="margin:auto">
+                    <input type="checkbox"  id="hormonalContraception" name="hormonalContraception" value="true"></input>
+                </div>
+                <div class="col-md-5"  style="margin:auto">
+                    <label for="hormonalContraception">Hormonal Contraception</label>
+                </div>
+                <div class="col-md-3">
+                    <input style="margin-left: 95px;" type="text" id="hormonalContraceptionDuration" name="hormonalContraceptionDuration" >
+                </div>
+                <div class="col-md-3">
+                    <select   name="hormonalContraceptionDurationType" id="hormonalContraceptionDurationType">
+                        <option value="d">days</option>
+                        <option value="m">months</option>
+                        <option value="y">years</option>
+                    </select>
+                </div>
+
+            </div>
+
+            <div class="row">
+                <div class="col-md-1"  style="margin:auto">
+                    <input type="checkbox"  id="seizure" name="seizure" value="true"></input>
+                </div>
+                <div class="col-md-5"  style="margin:auto">
+                    <label for="seizure">seizure/fit (gabapentin (Neurontin), pregabalin (Lyrica), divalproex (Depakote))</label>
+                </div>
+                <div class="col-md-3">
+                    <input style="margin-left: 95px;" type="text" id="seizureDuration" name="seizureDuration" >
+                </div>
+                <div class="col-md-3">
+                    <select   name="seizureDurationType" id="seizureDurationType">
+                        <option value="d">days</option>
+                        <option value="m">months</option>
+                        <option value="y">years</option>
+                    </select>
+                </div>
+
+            </div>
+
+            <div class="row">
+                <div class="col-md-1"  style="margin:auto">
+                    <input type="checkbox"  id="proteinSupplements" name="proteinSupplements" value="true"></input>
+                </div>
+                <div class="col-md-5"  style="margin:auto">
+                    <label for="proteinSupplements">proteinSupplements</label>
+                </div>
+                <div class="col-md-3">
+                    <input style="margin-left: 95px;" type="text" id="proteinSupplementsDuration" name="proteinSupplementsDuration" >
+                </div>
+                <div class="col-md-3">
+                    <select   name="proteinSupplementsDurationType" id="proteinSupplementsDurationType">
+                        <option value="d">days</option>
+                        <option value="m">months</option>
+                        <option value="y">years</option>
+                    </select>
+                </div>
+
+            </div>
+
+            <div class="row">
+                <div class="col-md-1"  style="margin:auto">
+                    <input type="checkbox"  id="Opioids" name="Opioids" value="true"></input>
+                </div>
+                <div class="col-md-5"  style="margin:auto">
+                    <label for="Opioids">Opioids (oxycodone, hydrocodone)</label>
+                </div>
+                <div class="col-md-3">
+                    <input style="margin-left: 95px;" type="text" id="OpioidsDuration" name="OpioidsDuration" >
+                </div>
+                <div class="col-md-3">
+                    <select   name="OpioidsDurationType" id="OpioidsDurationType">
+                        <option value="d">days</option>
+                        <option value="m">months</option>
+                        <option value="y">years</option>
+                    </select>
+                </div>
+
+            </div>
+
+            <div class="row">
+                <div class="col-md-1"  style="margin:auto">
+                    <input type="checkbox"  id="antiHistamines" name="antiHistamines" value="true"></input>
+                </div>
+                <div class="col-md-5"  style="margin:auto">
+                    <label for="antiHistamines">Anti-Histamines (ranitidine, diphenhydramine (Benadryl), cetirizine (Zyrtec))</label>
+                </div>
+                <div class="col-md-3">
+                    <input style="margin-left: 95px;" type="text" id="antiHistaminesDuration" name="antiHistaminesDuration" >
+                </div>
+                <div class="col-md-3">
+                    <select   name="antiHistaminesDurationType" id="antiHistaminesDurationType">
+                        <option value="d">days</option>
+                        <option value="m">months</option>
+                        <option value="y">years</option>
+                    </select>
+                </div>
+
+            </div>
+            <br/>
+
+            <div class="row" style="margin-left: 10px;">
+                <div class="col-md-6">
+                    <label for="medicalAllergies"><b>Please state all your known medical allergies</b></label>
+                </div>
+                <div class="col-md-6">
+                    <input type="text" id="medicalAllergies" name="medicalAllergies">
+                </div>
+            </div>
+
+            <br/>
+
+            <div class="row" style="margin-left: 25px;">
+                <p><strong>Select all options that you have undergone/experienced within the past year?</strong></p>
+            </div>
+
+            <div class="row" style="margin-bottom: -30px;">
+                <div class="col-md-1" style="margin:auto">
+                    <input type="checkbox"  id="undergoneSurgery" name="undergoneSurgery" value="true"></input>
+                </div>
+                <div class="col-md-11"  style="margin:auto">
+                    <label for="undergoneSurgery">Undergone surgery within the past year</label>
+                </div>
+
+            </div>
+
+            <div class="row" style="margin-bottom: -30px;">
+                <div class="col-md-1" style="margin:auto">
+                    <input type="checkbox"  id="physicallyImmobile" name="physicallyImmobile" value="true"></input>
+                </div>
+                <div class="col-md-11"  style="margin:auto">
+                    <label for="physicallyImmobile">Been Physically Immobile in the past year</label>
+                </div>
+
+            </div>
+
+            <div class="row">
+                <div class="col-md-1" style="margin:auto">
+                    <input type="checkbox"  id="viralFever" name="viralFever" value="true"></input>
+                </div>
+                <div class="col-md-11"  style="margin:auto">
+                    <label for="viralFever">Suffered from Viral Fever sometime in the past year</label>
+                </div>
+
+            </div>
+
+            <div class="row" style="margin-left: 10px;">
+                <div class="col-md-6" style="margin:auto">
+                    <label for="workoutValue"><b>Do you work out for more than 2.5 hours or 150 minutes per week?</b></label>
+                </div>
+                <div class="col-md-6" style="margin:auto">
+                    <select name="workoutValue" id="workoutValue">
+                        <option value="y">Yes</option>
+                        <option value="n">No</option>
+                    </select>
+                </div>
+
+            </div>
+
+            <div class="row" style="margin-left: 10px;">
+                <div class="col-md-6" style="margin:auto">
+                    <label for="eatFoodValue"><b>Do eat any of the following more than twice a week?</b></label>
+                </div>
+                <div class="col-md-6" style="margin:auto">
+                    <select name="eatFoodValue" id="eatFoodValue">
+                        <option value="y">Yes</option>
+                        <option value="n">No</option>
+                    </select>
+                </div>
+
+            </div>
+
+            <ul style="list-style-type:none;margin-left:150px;">
+                <li>Sugary food</li>
+                <li>Soft-Drinks</li>
+                <li>Bakery Items</li>
+                <li>Processed Food</li>
+                <li>Fried Food</li>
+                <li>Desserts</li>
+            </ul>
+
+            <div class="row">
+                <div class="col-md-6">
+                    <label><b>How many hours of sleep do you get in a day?</b></label>
+                </div>
+                <div class="col-md-3">
+                    <input style="width:300px" type="text"  id="sleepValue" name="sleepValue"></input>
+                </div>
+                <div class="col-md-3" style="width:300px;">
+                    <select name="sleepValueType" id="sleepValueType">
+                        <option value="d">days</option>
+                        <option value="m">months</option>
+                        <option value="y">years</option>
+                    </select>
+                </div>
+
+            </div>
+
+            <br/>
+            <br/>
+
+            <div class="row" style="margin-left: 1px;margin-bottom: -15px;">
+                <p><b>Please enter any health conditions in your family members.</b></p>
+                <p><b>(Straight blood relatives only)</b></p>
+            </div>
+            <div class="row" style="margin-left: 1px;">
+                <p>*This information is important for diagnosis to highlight any risks and possible complications</p>
+                
+            </div>
+
+            <div class="row" style="margin-bottom:-30px;">
+                <div class="col-md-1" style="margin: auto;">
+                    <input type="checkbox"  id="highBloodPressure" name="highBloodPressure" value="true"></input>
+                </div>
+                <div class="col-md-11" style="margin: auto;">
+                    <label for="highBloodPressure">High Blood Pressure</label>
+                </div>
+            </div>
+
+            <div class="row" style="margin-bottom:-30px;">
+                <div class="col-md-1" style="margin: auto;">
+                    <input type="checkbox"  id="highCholesterol" name="highCholesterol" value="true"></input>
+                </div>
+                <div class="col-md-11" style="margin: auto;">
+                    <label for="highCholesterol">High Cholesterol</label>
+                </div>
+            </div>
+
+            <div class="row" style="margin-bottom:-30px;">
+                <div class="col-md-1" style="margin: auto;">
+                    <input type="checkbox"  id="familyHypothyroidism" name="familyHypothyroidism" value="true"></input>
+                </div>
+                <div class="col-md-11" style="margin: auto;">
+                    <label for="familyHypothyroidism">Hypothyroidism</label>
+                </div>
+            </div>
+
+            <div class="row" style="margin-bottom:-30px;">
+                <div class="col-md-1" style="margin: auto;">
+                    <input type="checkbox"  id="diabetes" name="diabetes" value="true"></input>
+                </div>
+                <div class="col-md-11" style="margin: auto;">
+                    <label for="diabetes">Diabetes</label>
+                </div>
+            </div>
+
+            <div class="row" style="margin-bottom:-30px;">
+                <div class="col-md-1" style="margin: auto;">
+                    <input type="checkbox"  id="pcos" name="pcos" value="true"></input>
+                </div>
+                <div class="col-md-11" style="margin: auto;">
+                    <label for="pcos">PCOS</label>
+                </div>
+            </div>
+
+            <br/>
+            <br/>
+
+
+            <div class="row" >
+                <div class="col-md-6" style="margin: auto;">
+                     <label for="reportFirst"><b>Please upload reports of recent blood tests or ultrasounds taken with 3 months</b></label>
+                </div>
+                <div class="col-md-6" style="margin: auto;">
+                    <input type="file" id="reportFirst" name="reportFirst" ></input>
+                </div>
+              </div>
+
+              <br/>
+  
+  
+            <div class="row" >
+                  <div class="col-md-6" style="margin: auto;">
+                       <label for="reportSecond"><b>Please upload prescriptions of any treatments you might be undergoing.</b></label>
+                  </div>
+                  <div class="col-md-6" style="margin: auto;">
+                      <input type="file" id="reportSecond" name="reportSecond" ></input>
+                  </div>
+            </div>
+
+            <br/>
+
+            <div class="row">
+                <div class="col-md-6">
+                    <label for="otherExtraDetailForDoctor"><b>Please enter any other detail you might want the doctor to know.</b></label>
+                </div>
+                <div class="col-md-6">
+                    <input type="text" id="otherExtraDetailForDoctor" name="otherExtraDetailForDoctor"/>
+                </div>
+            </div>
+
+            <br/>
+            <br/>
+
+            
+            <div class="row" style="margin-left: 1px;margin-bottom: -15px;">
+                <p style="margin-bottom: -5px;"><b>At Proactive, we focus on a multidisciplinary approach to obtain the best outcome and healthcare experience for our patients. </b></p>
+                <p><b>Please select if you would like any additional support or guidance from any of our other experts.</b></p>
+            </div>
+
+            <div class="row" style="margin-bottom:-30px;">
+                <div class="col-md-1" style="margin: auto;">
+                    <input type="checkbox"  id="nutritionExpert" name="nutritionExpert" value="true"></input>
+                </div>
+                <div class="col-md-11" style="margin: auto;">
+                    <label for="nutritionExpert">Nutrition expert</label>
+                </div>
+            </div>
+
+
+            <div class="row" style="margin-bottom:-30px;">
+                <div class="col-md-1" style="margin: auto;">
+                    <input type="checkbox"  id="yogaTherapist" name="yogaTherapist" value="true"></input>
+                </div>
+                <div class="col-md-11" style="margin: auto;">
+                    <label for="yogaTherapist">Yoga Therapist</label>
+                </div>
+            </div>
+
+
+            <div class="row" style="margin-bottom:-30px;">
+                <div class="col-md-1" style="margin: auto;">
+                    <input type="checkbox"  id="dermatologist" name="dermatologist" value="true"></input>
+                </div>
+                <div class="col-md-11" style="margin: auto;">
+                    <label for="dermatologist">Dermatologist</label>
+                </div>
+            </div>
+
+            <div class="row" style="margin-bottom:-30px;">
+                <div class="col-md-1" style="margin: auto;">
+                    <input type="checkbox"  id="psychiatrist" name="psychiatrist" value="true"></input>
+                </div>
+                <div class="col-md-11" style="margin: auto;">
+                    <label for="psychiatrist">Mental Health Expert</label>
+                </div>
+            </div>
+
+            
+            
+  
+
+
+
+
+
+
+
+
+
+
+            
+
+           
+
+            <div class="row">
+                <input style="background-color: blue;" type="submit" value="Submit">
+            </div>
+
+           
+            
+
+
+           
+        </form>
+    </div>
+    
+</body>
+</html>
