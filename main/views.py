@@ -15,7 +15,7 @@ def homepage(request):
             instance.save()
             form.save()
             print('valid')
-            return redirect('/homepage')
+            return redirect('/output')
         else:
             print('invalid')
 

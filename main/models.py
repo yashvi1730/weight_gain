@@ -57,6 +57,7 @@ class Patient(models.Model):
     hip=models.IntegerField(default="30")
     purpose=models.CharField(max_length=100, choices=PURPOSE_CHOICES, default='None')
     have_baby=models.CharField(max_length=100,choices=HAVE_BABY_CHOICES,default='n')
+
     hyperprolactinemia=models.CharField(max_length=100,default='false',null=True,blank=True)
     pcos_pcod=models.CharField(max_length=100,default='false',null=True,blank=True)
     hypothyroidism=models.CharField(max_length=100,default='false',null=True,blank=True)
@@ -65,7 +66,16 @@ class Patient(models.Model):
     pcos_pcod_days=models.IntegerField(null=True,blank=True,default=0)
     hypothyroidism_days=models.IntegerField(null=True,blank=True,default=0)
     other_days=models.IntegerField(null=True,blank=True,default=0)
-    symptoms7=models.CharField(max_length=100,default="none")
+    hyperprolactinemia_days_type=models.CharField(max_length=100,choices=TIME9_D_CHOICES,default='m')
+    pcos_pcod_days_type=models.CharField(max_length=100,choices=TIME9_D_CHOICES,default='m')
+    hypothyroidism_days_type=models.CharField(max_length=100,choices=TIME9_D_CHOICES,default='m')
+    other_days_type=models.CharField(max_length=100,choices=TIME9_D_CHOICES,default='m')
+    other_type=models.CharField(max_length=100,default='None',null=True,blank=True)
+    
+
+
+
+    symptoms7=models.CharField(max_length=100,default='None',null=True,blank=True)
     month8=models.CharField(max_length=100,choices=MONTH8_CHOICES,default='JAN')
     year8=models.CharField(max_length=100,choices=YEAR8_CHOICES,default='2019')
     weight9=models.IntegerField(null=True,blank=True,default=None)
@@ -124,7 +134,7 @@ class Patient(models.Model):
     eatFoodValue=models.CharField(max_length=100,choices=YN_CHOICES,default='n')
 
     sleepValue=models.IntegerField(null=True,blank=True,default=0)
-    sleepValueType=models.CharField(max_length=100,choices=TIME9_D_CHOICES,default='m')
+    
 
     highBloodPressure=models.CharField(max_length=100,null=True,blank=True,default='false')
     highCholesterol=models.CharField(max_length=100,null=True,blank=True,default='false')

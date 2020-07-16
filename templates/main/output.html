@@ -58,268 +58,502 @@
     box-sizing: border-box;
   }
   
+
+
+
+
+
+  .gauge1 {
+    width: 100%;
+    max-width: 250px;
+    font-family: "Roboto", sans-serif;
+    font-size: 32px;
+    color: #004033;
+  }
+  
+.gauge__body1 {
+    width: 100%;
+    height: 0;
+    padding-bottom: 50%;
+    background: #b4c0be;
+    position: relative;
+    border-top-left-radius: 100% 200%;
+    border-top-right-radius: 100% 200%;
+    overflow: hidden;
+  }
+  
+.gauge__fill1 {
+    position: absolute;
+    top: 100%;
+    left: 0;
+    width: inherit;
+    height: 100%;
+    background: #009578;
+    transform-origin: center top;
+    transform: rotate(0.25turn);
+    transition: transform 0.2s ease-out;
+  }
+  
+.gauge__cover1 {
+    width: 75%;
+    height: 150%;
+    background: #ffffff;
+    border-radius: 50%;
+    position: absolute;
+    top: 25%;
+    left: 50%;
+    transform: translateX(-50%);
+  
+    /* Text */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding-bottom: 25%;
+    box-sizing: border-box;
+  }
+  
     
     </style>
 </head>
-<body >
-    <br/>
-    <div class="row">
-        
+<body style="font-family: open sans;font-size: larger;color:#163948;">
+    <div class="container" style="background-color:white;border-color: #163948 ;border-style: solid;border-radius: 20px;border-width: 7px;border-spacing: 10px;">
+        <div class="row" style="padding-left:500px ;">
+            <h1 style="text-align: center;font-family: montserrat;"><b>Report</b></h1>
+        </div>
+        <br/>
+        <br/>
+        <div>
 
-    <div class="col-md-6">
-       <table style="border: 1px solid black;border-collapse: collapse; border-spacing: 30px;width:770px;">
-           <tr style="background-color: lightgray;">
-               <th style="border: 1px solid black;border-collapse: collapse;padding-right: 120px;">Age</th>
-               <th style="border: 1px solid black;border-collapse: collapse;padding-right: 120px;">Name</th>
-               <th style="border: 1px solid black;border-collapse: collapse;padding-right: 120px;">Last Period</th>
-               <th style="border: 1px solid black;border-collapse: collapse;padding-right: 120px;">purpose</th>
-           </tr>
-           <tr >
-            <td style="border: 1px solid black;border-collapse: collapse;padding-right: 120px;">{{age}}</td>
-            <td style="border: 1px solid black;border-collapse: collapse;padding-right: 120px;">{{appoint.name}}</td>
-            <td style="border: 1px solid black;border-collapse: collapse;padding-right: 120px;">{{appoint.lastPeriodTimeMonth}}  {{appoint.lastPeriodTimeYear}}</td>
-            <td style="border: 1px solid black;border-collapse: collapse;padding-right: 120px;">{{appoint.get_purpose_display}}</td>
-        </tr>
-       </table>
+            <table style="border: 1px solid black; border-spacing: 30px;width:1090px;">
+                <tr style="background-color:#163948;   ">
+                    <th style="color:white;text-align:center;border: 1px solid black;border-collapse: collapse;padding-right: 50px;font-family: lora;font-size: larger;">Age</th>
+                    <th style="color:white;text-align:center;border: 1px solid black;border-collapse: collapse;padding-right: 50px;font-family: lora;font-size: larger;">Name</th>
+                    <th style="color:white;text-align:center;border: 1px solid black;border-collapse: collapse;padding-right: 50px;font-family: lora;font-size: larger;">Last Period</th>
+                    <th style="color:white;text-align:center;border: 1px solid black;border-collapse: collapse;padding-right: 50px;font-family: lora;font-size: larger;">Purpose</th>
+                </tr>
+                <tr style="text-align: center;">
+                 <td style="border: 1px solid black;border-collapse: collapse;padding-right: 120px;">{{age}}</td>
+                 <td style="border: 1px solid black;border-collapse: collapse;padding-right: 120px;">{{appoint.name}}</td>
+                 <td style="border: 1px solid black;border-collapse: collapse;padding-right: 120px;">{{appoint.lastPeriodTimeMonth}}  {{appoint.lastPeriodTimeYear}}</td>
+                 <td style="border: 1px solid black;border-collapse: collapse;padding-right: 120px;">{{appoint.get_purpose_display}}</td>
+             </tr>
+            </table>
+        </div>
+        <div class="row">
+            <div class="col-md-4">
+                <table style="border: 1px solid black;width:372px;height:619px;">
 
-       </div>
+                    <tr style="background-color: #163948; height:50px;">
+                        <th  style="text-align:center;border: 1px solid black;padding-right: 50px;color: white;font-family: lora;font-size: larger;">Waist/Hip Ratio</th>
+                    </tr>
+    
+                    <tr>
+                        <td style="border: 1px solid black;padding-right: 50px;text-align: center;">
+                            <div class="gauge" style="margin-left: 30px;">
+                                <div class="gauge__body">
+                                  <div class="gauge__fill"></div>
+                                  <div class="gauge__cover"></div>
+                                </div>
+                              </div>
+                            
+                            <br/>
+    
+                            {% if waist_hip <= 0.8 %}
+                            Your waist to hip ratio shows that you are at low risks from fat accumulation in belly area.
+                            {% elif waist_hip <= 0.85 %}
+                            Your waist to hip ratio show that you face from fat accumulation in belly area.
+                            {% else %}
+                            "You have an apple shaped body. Women of this body shape tend to have more fat accumulated near the belly and internal organs. This is often a signal of multiple health risks including High Cholesterol, Diabetes ad fertility, among others
+                            {% endif %}
+    
+                            
+    
+    
+                             
+                             </td>
+                    </tr>
+    
+                </table>
+            </div>
 
-       
+            <div class="col-md-4">
+                <table style="border: 1px solid black;width:373px;height:312px;">
 
-       <div class="col-md-5">
+                    <tr style="background-color: #163948;height: 50px;">
+                        <th  style="text-align:center;border: 1px solid black;padding-right: 50px;color: white;font-family: lora;font-size: larger;">Weight Gained</th>
+                    </tr>
+    
+                    <tr>
+                        
+                        <td style="border: 1px solid black;padding-right: 50px;text-align: center;">
+                            <br/>
+                             {{weight_gained}}% in {{appoint.time9}} {{appoint.get_time9_d_display}} 
+    
+                             <br/>
+                    
+                             Weight:  {{appoint.weight}}kgs
+                        </td>
+                    </tr>
+    
+                </table>
 
-        <table style="border: 1px solid black;border-collapse: collapse; border-spacing: 30px;width: 900px;">
-            <tr style="background-color: lightgray;">
-                <th style="border: 1px solid black;border-collapse: collapse;padding-right: 120px;">Previous Diagnosis</th>
-                <th  colspan="2" style="border: 1px solid black;border-collapse: collapse;padding-left: 120px;">Files Uploaded</th>
+                <table style="border: 1px solid black;width:373px;height: 307px;">
+
+                    <tr style="background-color:#163948;height:50px;">
+                        <th  style="text-align:center;border: 1px solid black;padding-right: 50px;color: white;font-family: lora;font-size: larger;">Pregnancy within past year</th>
+                    </tr>
+    
+                    <tr style="text-align: center;">
+                        
+                        <td style="border: 1px solid black;border-collapse: collapse;padding-right: 50px;">
+                             {% if appoint.have_baby == "y" %}
+                               <p style="text-align: center;"><b>Yes</b></p>
+                               <p>Ideally, pregnancy weight should ideally be lost within 1 year of delivering the baby.</p>
+                             {% else %}
+                             <p style="text-align: center;"><b>Yes</b></p>
+                             {% endif %}
+                        </td>
+                    </tr>
+    
+                </table>
+            </div>
+
+            <div class="col-md-4">
                 
+                <table style="border: 1px solid black;width:346px;height:312px;">
+
+                    <tr style="background-color:#163948;height:50px;">
+                        <th  style="text-align:center;border: 1px solid black;padding-right: 50px;color: white;font-family: lora;font-size: larger;">BMI</th>
+                    </tr>
+                    <tr style="text-align: center;">
+                        <td style="border: 1px solid black;padding-right: 50px;">
+                            <div class="gauge1" style="margin-left: 30px;">
+                                <div class="gauge__body1">
+                                  <div class="gauge__fill1"></div>
+                                  <div class="gauge__cover1"></div>
+                                </div>
+                              </div>
+                            <br/>
+                            <p>Weight: {{appoint.weight}}</p>
+                            <p>Height: {{appoint.height_feet}} ft   {{appoint.height_inches}} inch </p>
+                        </td>
+                    </tr>
+    
+                </table>
+
+                <table style="border: 1px solid black;width:346px;height:307px;">
+
+                    <tr>
+                        <td  style="background-color:#163948;text-align:center;border: 1px solid black;padding-right: 50px;color: white;font-family: lora;font-size: larger;"><b>High-Carb Intake</b></td>
+                        <td colspan="2" style="border: 1px solid black;text-align: center;">
+                        <p style="text-align: center;">{{appoint.get_eatFoodValue_display}}</p>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td style="background-color:#163948;text-align:center;border: 1px solid black;padding-right: 50px;color: white;font-family: lora;font-size: larger;"><b>Physical exercise</b> </td>
+                        <td colspan="2" style="border: 1px solid black;">
+                            <p style="text-align: center;">{{appoint.get_workoutValue_display}}</p>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td style="background-color:#163948;text-align:center;border: 1px solid black;padding-right: 50px;color: white;font-family: lora;font-size: larger;"><b>Sleep</b> </td>
+                        <td colspan="2" style="border: 1px solid black;text-align: center;">
+                            <p >{{appoint.sleepValue}}{{appoint.get_sleepValueType_display}} hrs
+
+                            {% if appoint.sleepValue < 6.5 %}
+                              (Insufficient)
+                            {% elif appoint.sleepValue < 9 %}
+                              (Optimal)
+                            {% else %}
+                               (Excess)
+                            {% endif %}
+                            </p>
+                        </td>
+                    </tr>
+    
+                </table>
+            </div>
+        </div>
+        <div class="row">
+        <table style="border: 1px solid black;width:1090px;height: 835px;margin-top: -20px;margin-left: 15px;">
+            <tr  style="background-color: #163948;">
+                <th colspan="2" style="border: 1px solid black;padding-right: 120px;text-align:center;color:white;font-family: lora;font-size: larger;">
+                    <p >Symptomatic deductions</p>
+                    <p>*These deductions are based purely on your inputs in the questionnaire. Please discuss the with the medical practitioner.</p>
+                </th>
+            </tr>
+
+
+            
+
+            <tr>
+                <td style="border: 1px solid black;padding-right: 120px;padding-left: 5px;">
+                    <b>Strongly Symptomatic</b>
+                
+                </td>
+
+                <td style="border: 1px solid black;padding-right: 120px;padding-left: 5px;">
+                    {% if pcos_ratio > 0.4 %}
+                       PCOS
+                       <br/>
+                    {% endif %}
+
+                    {% if thyroid_ratio > 0.4 %}
+                        Hypothyroidism
+                        <br/>	
+                    {% endif %}
+
+                    {% if prolac_ratio > 0.4 %}
+                    Hyperprolactinemia
+                    <br/>	
+
+                    {% endif %}
+                </td>
+            </tr>
+
+            <tr>
+                <td style="border: 1px solid black;padding-right: 120px;padding-left: 5px;">
+                    <b>Mildly Symptomatic</b>
+                
+                </td>
+
+                <td style="border: 1px solid black;padding-right: 120px;padding-left: 5px;">
+                    {% if pcos_ratio > 0.2 and pcos_ratio < 0.4 %}
+                       PCOS
+                       <br/>
+                    {% endif %}
+
+                    {% if thyroid_ratio > 0.2 and thyroid_ratio < 0.4 %}
+                        Hypothyroidism
+                        <br/>	
+                    {% endif %}
+
+                    {% if prolac_ratio > 0.2 and thyroid_ratio < 0.4 %}
+                    Hyperprolactinemia
+                    <br/>	
+
+                    {% endif %}
+                </td>
+            </tr>
+
+            <tr  style="background-color: #163948;">
+                <th colspan="2" style="border: 1px solid black;padding-right: 120px;text-align:center;color: white;font-family: lora;font-size: larger;">
+                    <p style="text-align: center;">Possible risks and complications</p>
+                    
+                </th>
+
+            </tr>
+
+            <tr style="background-color: #163948;">
+                <th colspan="2" style="border: 1px solid black;padding-right: 120px;text-align:center;color: white;font-family: lora;font-size: larger;">
+                    <p style="text-align: center;">Family History</p>
+                    
+                </th>
+            </tr>
+
+            <tr>
+                <td colspan="2" style="border: 1px solid black;padding-right: 120px;padding-left: 5px;" >
+                    
+                    {% if appoint.highBloodPressure == "true" %}
+                    High Blood Pressure
+                    <br/>
+                    {% endif %}
+                   
+
+                    {% if appoint.highCholesterol == "true" %}
+                    High Cholesterol
+                    <br/>
+                    {% endif %}
+                   
+
+                    {% if appoint.familyHypothyroidism == "true" %}
+                    Hypothyroidism
+                    <br/>
+                    {% endif %}
+                   
+
+                    {% if appoint.diabetes == "true" %}
+                    Diabetes
+                    <br/>
+                    {% endif %}
+                   
+
+                    {% if appoint.pcos == "true" %}
+                    PCOS
+                    <br/>
+                    {% endif %}
+                    
+                </td>
+            </tr>
+
+            <tr style="background-color: #163948;">
+                <th colspan="2" style="border: 1px solid black;padding-right: 120px;text-align:center;color: white;font-family: lora;font-size: larger;">
+                    <p style="text-align: center;">From Symptoms or Known Health Issues</p>
+                    
+                </th>
+            </tr>
+
+            <tr>
+                <td colspan="2" style="border: 1px solid black;border-collapse: collapse;padding-right: 120px; padding-left: 5px;">
+                {% if pcos_ratio > 0.2 or appoint.pcos_pcod == "true" %}
+                <p><b>Risk from PCOS:</b></p>
+                <p>Diabetes Type 2, Sleep Apnea, Cardiovascular Diseases and Hypertension, Hypertension in Pregnancy, Obesity, Impaired Glucose Intolerance (Pre-Diabetic).</p>
+                {% endif %}
+
+                {% if thyroid_ratio > 0.2 or appoint.hypothyroidism == "true" %}
+                <p><b>Risk from Hypothyroidism:</b> </p>
+                <p>Cardiovascular Diseases, Infertility, complications in pregnancy, Reduced Kidney function, obesity</p>
+                {% endif %}
+
+                {% if prolac_ratio > 0.2 or appoint.hyperprolactinemia == "true" %}
+                <p><b>Risk from Hyperprolactinemia:</b> </p>
+                <p>Infertility,In extreme cases - blindness, hemorrhage, osteoporosis</p>
+                {% endif %}
+                </td>
+            </tr>
+
+            <tr style="background-color: #163948;">
+                <th  colspan="2" style="border: 1px solid black;padding-right: 120px;text-align:center;color: white;font-family: lora;font-size: larger;">
+                    <p style="text-align: center;">Other possible causes of weight gain</p>
+                    
+                </th>
+            </tr>
+            <tr>
+                <td colspan="2" style="padding-left: 5px;">
+                
+                   Stress
+                   <br/>
+                
+
+                    
+                    {% if appoint.migrane == "true" or appoint.diabestes == "true" or appoint.medicationHighBloodPressure == "true" or appoint.medicationMentalHealthDisorder == "true" or appoint.steroidTherapy == "true" or appoint.hormonalContraception == "true" or appoint.seizure == "true" or appoint.proteinSupplements == "true" or appoint.Opioids == "true" or appoint.antiHistamines == "true" %}
+                      <b>Ongoing Medications-</b>
+                    {% endif %}
+                    {% if appoint.diabestes == "true" %}
+                      Diabetes
+                      <br/>
+                    {% endif %}
+
+                    {% if appoint.migrane == "true" %}
+                      migraine
+                      <br/>
+                    {% endif %}
+
+                    {% if appoint.medicationHighBloodPressure == "true" %}
+                       High Blood pressure(metoprolol (Lopressor), atenolol (Tenormin), propranolol (Inderal))
+                       <br/>
+                    {% endif %}
+
+                    {% if appoint.medicationMentalHealthDisorder == "true" %}
+                       Mental health disorder  (paroxetine (Paxil), sertraline (Zoloft), amitriptyline, trazodone, alprazolam (Xanax), diazepam (Valium)
+                       <br/>
+                    {% endif %}
+
+                    {% if appoint.steroidTherapy == "true" %}
+                        Steroid therapy (prednisone, norethindrone, Nexplanon, tamoxifen)
+                        <br/>
+                    {% endif %}
+
+                    {% if appoint.hormonalContraception == "true" %}
+                        Hormonal Contraception
+                        <br/>
+                    {% endif %}
+
+                    {% if appoint.seizure == "true" %}
+                        seizure/fit (gabapentin (Neurontin), pregabalin (Lyrica), divalproex (Depakote))
+                        <br/>
+                    {% endif %}
+
+                    {% if appoint.proteinSupplements == "true" %}
+                        Protein Supplements
+                        <br/>
+                    {% endif %}
+
+                    {% if appoint.Opioids == "true" %}
+                        Opioids (oxycodone, hydrocodone)
+                        <br/>
+                    {% endif %}
+
+                    {% if appoint.antiHistamines == "true" %}
+                        Anti-Histamines (ranitidine, diphenhydramine (Benadryl), cetirizine (Zyrtec))
+                        <br/>
+                    {% endif %}
+
+                
+                
+                
+                   {% if appoint.sleepValue > 9 %}
+                   Excess Sleep
+                   <br/>
+                   {% endif %}
+                   
+                
+
+                
+                   {% if appoint.undergoneSurgery %}
+                     Recent surgery
+                   {% endif %}
+                </td>
                 
             </tr>
-            <tr >
-             <td style="border: 1px solid black;border-collapse: collapse;padding-right: 120px;">
-                 {% if appoint.hyperprolactinemia %}
-                 hyperprolactinemia
-                 {% endif %}
-                 {% if appoint.pcos_pcod %}
-                 Pcos_Pcod
-                 {% endif %}
-                 {% if appoint.hypothyroidism %}
-                 Hypothyroidism
-                 {% endif %}
-                 {% if appoint.other %}
-                 other
-                 {% endif %}
-            
-            
-            </td>
-             <td style="border: 1px solid black;border-collapse: collapse;">{{appoint.reportFirst}}</td>
-             <td style="border: 1px solid black;border-collapse: collapse;">{{appoint.reportSecond}}  {{appoint.lastPeriodTimeYear}}</td>
-             
-         </tr>
+        
         </table>
-           
-       </div>
-    </div>
-
-    <br/>
-    <br/>
-
-    <div class="row">
-        <div class="col-md-2">
-            <table style="border: 1px solid black;border-collapse: collapse; border-spacing: 30px;width:200px;height:607px;">
-
-                <tr style="background-color: lightgray;">
-                    <th  style="border: 1px solid black;border-collapse: collapse;padding-right: 50px;">Waist/Hip Ratio</th>
-                </tr>
-
-                <tr>
-                    <td style="border: 1px solid black;border-collapse: collapse;padding-right: 50px;">
-                        <div class="gauge">
-                            <div class="gauge__body">
-                              <div class="gauge__fill"></div>
-                              <div class="gauge__cover"></div>
-                            </div>
-                          </div>
-                        
-                        <p style="text-align: center;"><b>{{waist_hip}}</b></p>
-
-                        {% if waist_hip <= 0.8 %}
-                        Your waist to hip ratio shows that you are at low risks from fat accumulation in belly area.
-                        {% elif waist_hip <= 0.85 %}
-                        Your waist to hip ratio show that you face from fat accumulation in belly area.
-                        {% else %}
-                        "You have an apple shaped body. Women of this body shape tend to have more fat accumulated near the belly and internal organs. This is often a signal of multiple health risks including High Cholesterol, Diabetes ad fertility, among others
-                        {% endif %}
-
-                        
-
-
-                         
-                         </td>
-                </tr>
-
-            </table>
 
         </div>
+        <br/>
 
-            <div class="col-md-2">
+        <h3 style="text-align: center;"><b>Please find below the information you provided.</b></h3>
+        <br/>
 
-            <table style="border: 1px solid black;border-collapse: collapse; border-spacing: 30px;width:200px;height:225px;">
-
-                <tr style="background-color: lightgray;">
-                    <th  style="border: 1px solid black;border-collapse: collapse;padding-right: 50px;">Weight Gained</th>
-                </tr>
-
-                <tr>
+        <div class="row">
+            <table style="border: 1px solid black;width:1090px;height: 160px;margin-left: 15px;">
+                <tr style="background-color:  #163948 ;">
+                    <th style="text-align:center;border: 1px solid black;padding-right: 50px;color: white;font-family: lora;font-size: larger;">Previous Diagnosis</th>
+                    <th  colspan="2" style="text-align:center;border: 1px solid black;padding-right: 50px;color: white;font-family: lora;font-size: larger;">Files Uploaded</th>
                     
-                    <td style="border: 1px solid black;border-collapse: collapse;padding-right: 50px;">
-                        <br/>
-                         {{weight_gained}}% in {{appoint.time9}} {{appoint.get_time9_d_display}} 
-
-                         <br/>
+                    
+                </tr>
+                <tr >
+                 <td style="border: 1px solid black;padding-right: 120px;text-align: center;">
+                     {% if appoint.hyperprolactinemia == "true" %}
+                     hyperprolactinemia
+                     <br/>
+                     {% endif %}
+                     {% if appoint.pcos_pcod == "true" %}
+                     Pcos_Pcod
+                     <br/>
+                     {% endif %}
+                     {% if appoint.hypothyroidism == "true" %}
+                     Hypothyroidism
+                     <br/>
+                     {% endif %}
+                     {% if appoint.other == "true" %}
+                     other
+                     <br/>
+                     {% endif %}
                 
-                         Weight:  {{appoint.weight}}kgs
-                    </td>
+                
+                </td>
+                 <td style="border: 1px solid black;border-collapse: collapse;text-align: center;">{{appoint.reportFirst}}</td>
+                 <td style="border: 1px solid black;border-collapse: collapse;text-align: center;">{{appoint.reportSecond}}  {{appoint.lastPeriodTimeYear}}</td>
+                 
+             </tr>
+            </table>
+
+            <table style="border: 1px solid black;width:1090px;margin-left: 15px;">
+                <tr style="text-align: left;">
+                    <td style="border: 1px solid black;background-color:#163948;color: white;width:250px;padding-left: 5px;">Particular Concerns:</td>
+                    <td style="border: 1px solid black;padding-right: 120px;padding-left: 5px;">{{appoint.symptoms7}}</td>
                 </tr>
 
             </table>
 
-            <br/>
-            <br/>
-            
-
-
-            <table style="border: 1px solid black;border-collapse: collapse; border-spacing: 30px;width:200px;height: 335px;">
-
-                <tr style="background-color: lightgray;">
-                    <th  style="border: 1px solid black;border-collapse: collapse;padding-right: 50px;">Pregnancy within past year</th>
-                </tr>
-
-                <tr>
-                    
-                    <td style="border: 1px solid black;border-collapse: collapse;padding-right: 50px;">
-                        <br/>
-                         {% if appoint.have_baby == "y" %}
-                           <p style="text-align: center;"><b>Yes</b></p>
-                           <p>Ideally, pregnancy weight should ideally be lost within 1 year of delivering the baby.</p>
-                         {% else %}
-                         <p style="text-align: center;"><b>Yes</b></p>
-                         {% endif %}
-                    </td>
-                </tr>
-
-            </table>
-
-            
-
-        </div>
-
-        <div class="col-md-2">
-
-            <table style="border: 1px solid black;border-collapse: collapse; border-spacing: 30px;width:200px;height:200px;">
-
-                <tr style="background-color: lightgray;">
-                    <th  style="border: 1px solid black;border-collapse: collapse;padding-right: 50px;text-align: center;">BMI</th>
-                </tr>
-
-                <tr>
-                    
-                    <td style="border: 1px solid black;border-collapse: collapse;padding-right: 50px;">
-
-                        <div class="gauge">
-                            <div class="gauge__body">
-                              <div class="gauge__fill"></div>
-                              <div class="gauge__cover"></div>
-                            </div>
-                          </div>
-                        <p style="text-align: center;"><b>{{bmi}}</b></p>
-                        <p>Weight: {{appoint.weight}}</p>
-                        <p>Height: {{appoint.height_feet}} ft   {{appoint.height_inches}} inch </p>
-
-
-
-                        
-                    </td>
-                </tr>
-
-            </table>
-
-            <br/>
-            <br/>
-
-
-            <table style="border: 1px solid black;border-collapse: collapse; border-spacing: 30px;width:200px;height:338px;">
-
-                <tr>
-                    <td  style="background-color: lightgray;border: 1px solid black;border-collapse: collapse;text-align: center;"><b>High-Carb Intake</b></td>
-                    <td colspan="2" style="border: 1px solid black;border-collapse: collapse;text-align: center;">
-                    <p style="color: red;">{{appoint.get_eatFoodValue_display}}</p>
-                    </td>
-                </tr>
-
-                <tr>
-                    
-                    <td style="background-color: lightgray;border: 1px solid black;border-collapse: collapse;"><b>Physical exercise</b> </td>
-                    <td colspan="2" style="border: 1px solid black;border-collapse: collapse;">
-                        <p style="color: red;text-align: center;">{{appoint.get_workoutValue_display}}</p>
-                    </td>
-
-                </tr>
-
-                <tr>
-                    
-                    <td style="background-color: lightgray;border: 1px solid black;border-collapse: collapse;"><b>Physical exercise</b> </td>
-                    <td style="border: 1px solid black;border-collapse: collapse;">
-                        <p >{{appoint.sleepValue}}{{appoint.get_sleepValueType_display}}</p>
-
-                        
-                    </td>
-                    <td style="border: 1px solid black;border-collapse: collapse;">
-                        {% if appoint.sleepValue < 6.5 %}
-                          Insufficient
-                        {% elif appoint.sleepValue < 9 %}
-                          Optimal
-                        {% else %}
-                           Excess
-                        {% endif %}
-                    </td>
-                    
-
-
-                </tr>
-
-            </table>
-
-            
-        </div>
-
-        
-
-
-        
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-        
-
-        <div class="col-md-6">
-            <table style="border: 1px solid black;border-collapse: collapse; border-spacing: 30px;width: 900px;height:200px">
-                <tr style="background-color: lightgray;">
-                    <th colspan="2" style="border: 1px solid black;border-collapse: collapse;padding-right: 120px;">Symptoms</th>
+            <table style="border: 1px solid black;width: 1090px;margin-left: 15px;">
+                <tr style="background-color: #163948;">
+                    <th colspan="2" style="text-align:center;border: 1px solid black;padding-right: 50px;color: white;font-family: lora;font-size: larger;width: 545px;">Symptoms</th>
                 </tr>
                 <tr>
-                    <td style="border: 1px solid black;border-collapse: collapse;padding-right: 120px;">
+                    <td style="border: 1px solid black;padding-right: 120px;padding-left: 5px;width: 545px;">
                        {% if appoint.hairLoss == "true" %}
                           Hair Loss 
                        {% endif %}
@@ -402,7 +636,7 @@
                        {% endif %}
                     </td>
 
-                    <td style="border: 1px solid black;border-collapse: collapse;padding-right: 120px;">
+                    <td style="border: 1px solid black;padding-right: 120px;padding-left: 5px;width: 545px;">
                         <b>Last Period</b>
                         <br/>
                         {{appoint.lastPeriodTimeMonth}}{{appoint.lastPeriodTimeYear}}
@@ -434,19 +668,14 @@
 
             </table>
 
-
-            <br/>
-            </br/>
-
-
-            <table style="border: 1px solid black;border-collapse: collapse; border-spacing: 30px;width: 900px;height:100px;">
-                <tr style="background-color: lightgray;">
-                    <th style="border: 1px solid black;border-collapse: collapse;padding-right: 120px;">Medical Coditions in Family</th>
-                    <th style="border: 1px solid black;border-collapse: collapse;padding-right: 120px;">Ongoing Medicaton/Supplements for</th>
+            <table style="border: 1px solid black;width: 1090px;margin-left: 15px;">
+                <tr style="background-color: #163948 ">
+                    <th style="text-align:center;border: 1px solid black;padding-right: 50px;color: white;font-family: lora;font-size: larger;width: 545px;">Medical Coditions in Family</th>
+                    <th style="text-align:center;border: 1px solid black;padding-right: 50px;color: white;font-family: lora;font-size: larger;width: 545px;">Ongoing Medicaton/Supplements for</th>
 
                 </tr>
                 <tr>
-                    <td style="border: 1px solid black;border-collapse: collapse;padding-right: 120px;">
+                    <td style="border: 1px solid black;padding-left: 5px;">
 
                        {% if appoint.highBloodPressure == "true" %}
                          High Blood Pressure
@@ -476,10 +705,11 @@
                        {% if appoint.pcos == "true" %}
                         PCOS
                        {% endif %}
+                       
 
                     </td>
 
-                    <td style="border: 1px solid black;border-collapse: collapse;padding-right: 120px;">
+                    <td style="border: 1px solid black;padding-left: 5px;">
                         
                         {% if appoint.currentlyNotUnderAnyMedication == "true" %}
                         Currently not under medication
@@ -555,227 +785,19 @@
 
             </table>
 
-        </div>
-    </div>
-
-    <div class="row">
-        <div class="col-md-6">
-            <br/>
-            <br/>
-            <table style="border: 1px solid black;border-collapse: collapse; border-spacing: 30px;width: 775px;">
-                <tr  style="background-color: lightgray;">
-                    <th colspan="2" style="border: 1px solid black;border-collapse: collapse;padding-right: 120px;">
-                        <p>Symptomatic deductions</p>
-                        <p>*These deductions are based purely on your inputs in the questionnaire. Please discuss the with the medical practitioner.</p>
-                    </th>
-                </tr>
-
-                <tr>
-                    <td style="border: 1px solid black;border-collapse: collapse;padding-right: 120px;">
-                        <b>Strongly Symptomatic</b>
-                    
-                    </td>
-
-                    <td style="border: 1px solid black;border-collapse: collapse;padding-right: 120px;">
-                        {% if pcos_ratio > 0.4 %}
-                           PCOS
-                        {% endif %}
-
-                        {% if thyroid_ratio > 0.4 %}
-                            Hypothyroidism	
-                        {% endif %}
-
-                        {% if prolac_ratio > 0.4 %}
-                        Hyperprolactinemia	
-
-                        {% endif %}
-                    </td>
-                </tr>
-
-                <tr>
-                    <td style="border: 1px solid black;border-collapse: collapse;padding-right: 120px;">
-                        <b>Mildly Symptomatic</b>
-                    
-                    </td>
-
-                    <td style="border: 1px solid black;border-collapse: collapse;padding-right: 120px;">
-                        {% if pcos_ratio > 0.2 and pcos_ratio < 0.4 %}
-                           PCOS
-                        {% endif %}
-
-                        {% if thyroid_ratio > 0.2 and thyroid_ratio < 0.4 %}
-                            Hypothyroidism	
-                        {% endif %}
-
-                        {% if prolac_ratio > 0.2 and thyroid_ratio < 0.4 %}
-                        Hyperprolactinemia	
-
-                        {% endif %}
-                    </td>
-                </tr>
-
-                <tr  style="background-color: lightgray;">
-                    <th colspan="2" style="border: 1px solid black;border-collapse: collapse;padding-right: 120px;">
-                        <p style="text-align: center;">Possible risks and complications</p>
-                        
-                    </th>
+            <table style="border: 1px solid black; width: 1090px;margin-left: 15px;">
+                <tr style="background-color: #163948 ;">
+                    <th style="text-align:center;border: 1px solid black;padding-right: 50px;color: white;font-family: lora;font-size: larger;width: 545px;">Known Allergies</th>
+                    <th style="text-align:center;border: 1px solid black;padding-right: 50px;color: white;font-family: lora;font-size: larger;width: 545px;">Recent Surgery/Illness History</th>
 
                 </tr>
 
-                <tr style="background-color: lightblue;">
-                    <th colspan="2" style="border: 1px solid black;border-collapse: collapse;padding-right: 120px;">
-                        <p style="text-align: center;">Family History</p>
-                        
-                    </th>
-                </tr>
-
-                <tr>
-                    <td colspan="2" style="border: 1px solid black;border-collapse: collapse;padding-right: 120px;">
-                        <br/>
-                        {% if appoint.highBloodPressure == "true" %}
-                        High Blood Pressure
-                        {% endif %}
-
-                        {% if appoint.highCholesterol == "true" %}
-                        High Cholesterol
-                        {% endif %}
-
-                        {% if appoint.familyHypothyroidism == "true" %}
-                        Hypothyroidism
-                        {% endif %}
-
-                        {% if appoint.diabetes == "true" %}
-                        Diabetes
-                        {% endif %}
-
-                        {% if appoint.pcos == "true" %}
-                        PCOS
-                        {% endif %}
-                        
-                    </td>
-                </tr>
-
-                <tr style="background-color: lightblue;">
-                    <th colspan="2" style="border: 1px solid black;border-collapse: collapse;padding-right: 120px;">
-                        <p style="text-align: center;">From Symptoms or Known Health Issues</p>
-                        
-                    </th>
-                </tr>
-
-                <tr>
-                    <td colspan="2" style="border: 1px solid black;border-collapse: collapse;padding-right: 120px;">
-                    {% if pcos_ratio > 0.2 %}
-                    <p><b>Risk from PCOS:</b></p>
-                    <p>Diabetes Type 2, Sleep Apnea, Cardiovascular Diseases and Hypertension, Hypertension in Pregnancy, Obesity, Impaired Glucose Intolerance (Pre-Diabetic).</p>
-                    {% endif %}
-
-                    {% if thyroid_ratio > 0.2 %}
-                    <p><b>Risk from Hypothyroidism:</b> </p>
-                    <p>Cardiovascular Diseases, Infertility, complications in pregnancy, Reduced Kidney function, obesity</p>
-                    {% endif %}
-
-                    {% if prolac_ratio > 0.2 %}
-                    <p><b>Risk from Hyperprolactinemia:</b> </p>
-                    <p>Infertility,In extreme cases - blindness, hemorrhage, osteoporosis</p>
-                    {% endif %}
-                    </td>
-                </tr>
-
-                <tr style="background-color: lightgray;">
-                    <th colspan="2"  style="border: 1px solid black;border-collapse: collapse;padding-right: 120px;">
-                        <p style="text-align: center;">Other possible causes of weight gain</p>
-                        
-                    </th>
-                </tr>
-                <tr>
-                    <td  style="border: 1px solid black;border-collapse: collapse;padding-right: 120px;">
-                       <p>Stress</p>
-                    </td>
-
-                    <td  style="border: 1px solid black;border-collapse: collapse;padding-right: 120px;">
-                        {% if appoint.migrane == "true" or appoint.diabestes == "true" or appoint.medicationHighBloodPressure == "true" or appoint.medicationMentalHealthDisorder == "true" or appoint.steroidTherapy == "true" or appoint.hormonalContraception == "true" or appoint.seizure == "true" or appoint.proteinSupplements == "true" or appoint.Opioids == "true" or appoint.antiHistamines == "true" %}
-                          <p>Ongoing Medications</p>
-                        {% endif %}
-                        {% if appoint.diabestes == "true" %}
-                          Diabetes
-                        {% endif %}
-
-                        {% if appoint.migrane == "true" %}
-                        migraine
-                        {% endif %}
-
-                        {% if appoint.medicationHighBloodPressure == "true" %}
-                        High Blood pressure(metoprolol (Lopressor), atenolol (Tenormin), propranolol (Inderal))
-                        {% endif %}
-
-                        {% if appoint.medicationMentalHealthDisorder == "true" %}
-                        Mental health disorder  (paroxetine (Paxil), sertraline (Zoloft), amitriptyline, trazodone, alprazolam (Xanax), diazepam (Valium)
-                        {% endif %}
-
-                        {% if appoint.steroidTherapy == "true" %}
-                        Steroid therapy (prednisone, norethindrone, Nexplanon, tamoxifen)
-                        {% endif %}
-
-                        {% if appoint.hormonalContraception == "true" %}
-                        Hormonal Contraception
-                        {% endif %}
-
-                        {% if appoint.seizure == "true" %}
-                        seizure/fit (gabapentin (Neurontin), pregabalin (Lyrica), divalproex (Depakote))
-                        {% endif %}
-
-                        {% if appoint.proteinSupplements == "true" %}
-                        Protein Supplements
-                        {% endif %}
-
-                        {% if appoint.Opioids == "true" %}
-                        Opioids (oxycodone, hydrocodone)
-                        {% endif %}
-
-                        {% if appoint.antiHistamines == "true" %}
-                        Anti-Histamines (ranitidine, diphenhydramine (Benadryl), cetirizine (Zyrtec))
-                        {% endif %}
-                     </td>
-
-
-                </tr>
-
-                <tr>
-                    <td style="border: 1px solid black;border-collapse: collapse;padding-right: 120px;">
-                        <br/>
-                       {% if appoint.sleepValue > 9 %}
-                       Excess Sleep
-                       {% endif %}
-                    </td>
-                    <td style="border: 1px solid black;border-collapse: collapse;padding-right: 120px;">
-                         <br/>
-                         {% if appoint.undergoneSurgery %}
-                         Recent surgery
-                         {% endif %}
-
-                    </td>
-                </tr>
-            </table>
-        </div>
-
-        <div class="col-md-6">
-
-            <br/>
-            <br/>
-
-            <table style="border: 1px solid black;border-collapse: collapse; border-spacing: 30px;width: 900px;">
-                <tr style="background-color: lightgray;">
-                    <th style="border: 1px solid black;border-collapse: collapse;padding-right: 120px;">Known Allergies</th>
-                    <th style="border: 1px solid black;border-collapse: collapse;padding-right: 120px;">Recent Surgery/Illness History</th>
-
-                </tr>
-
-                <tr>
-                    <td style="border: 1px solid black;border-collapse: collapse;padding-right: 120px;">
+                <tr >
+                    <td style="border: 1px solid black;padding-right: 120px;padding-left: 5px;">
                     {{appoint.medicalAllergies}}
                     </td>
 
-                    <td style="border: 1px solid black;border-collapse: collapse;padding-right: 120px;">
+                    <td style="border: 1px solid black;padding-right: 120px;padding-left: 5px;">
                       
                        {% if appoint.undergoneSurgery == "true" %}
                        Undergone surgery within the past year
@@ -799,37 +821,50 @@
 
             </table>
 
+
         </div>
-    </div>
-
-   
+</div>
 
 
 
-    <script>
+
+<script>
         const gaugeElement = document.querySelector(".gauge");
 
-function setGaugeValue(gauge, value) {
-if (value < 0 or value > 1) {
-return;
-}
+        function setGaugeValue(gauge, value) {
+        if (value < 0 ) {
+        return;
+        }
 
-gauge.querySelector(".gauge__fill").style.transform = `rotate(${
-value / 2
-}turn)`;
-gauge.querySelector(".gauge__cover").textContent = `${
-value * 100}%`;
-}
-
-
-setGaugeValue(gaugeElement, {{waist_hip}} );
+        gauge.querySelector(".gauge__fill").style.transform = `rotate(${
+        value / 2
+        }turn)`;
+        gauge.querySelector(".gauge__cover").textContent = `${
+        value}`;
+        }
 
 
-    </script>
+        setGaugeValue(gaugeElement, {{waist_hip}} );
 
-    
 
-    
-    
+        const gaugeElement1 = document.querySelector(".gauge1");
+
+        function setGaugeValue1(gauge1, value1) {
+        if (value1 < 0 ) {
+        return;
+        }
+
+        gauge1.querySelector(".gauge__fill1").style.transform = `rotate(${
+        value1 / 2
+        }turn)`;
+        gauge1.querySelector(".gauge__cover1").textContent = `${
+        value1}`;
+        }
+
+
+        setGaugeValue1(gaugeElement1, {{bmi}} );
+</script>
+
+        
 </body>
 </html>
