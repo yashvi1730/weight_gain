@@ -11,24 +11,25 @@ def homepage(request):
     if request.method == 'POST':
         form =PatientForm(request.POST,request.FILES)
         if form.is_valid():
-            instance = Patient(reportFirst=request.FILES['reportFirst'],reportSecond=request.FILES['reportSecond'])
-            instance.save()
+            #instance = Patient(reportFirst=request.FILES['reportFirst'],reportSecond=request.FILES['reportSecond'])
+            #print(instance)
+            #instance.save()
             form.save()
             print('valid')
             return redirect('/output')
         else:
             print('invalid')
 
+    
+
     context={
         "form":form,
+        
     }
 
     return render(request,'main/homepage.html',context)
 
 
-def test(request):
-    context={}
-    return render(request,'main/test.html',context)
 
 
 def output(request):
@@ -40,7 +41,62 @@ def output(request):
     waist_hip=round(waisthip,2)
     height=(appoint.height_feet*30.48+appoint.height_inches*2.54)/100
     BMI=appoint.weight/(height*height)
+    ideal_weight=24.9*height*height
+
     bmi=round(BMI,2)
+
+    if bmi >= 25:
+        weightbmi = appoint.weight - ideal_weight
+
+    elif bmi < 18.5:
+        weightbmi = ideal_weight - appoint.weight
+
+    Weightbmi=round(weightbmi,2)
+
+    if appoint.month8 == "JAN":
+        month=1
+
+    if appoint.month8 == "FEB":
+        month=2
+
+    if appoint.month8 == "MAR":
+        month=3
+
+    if appoint.month8 == "APR":
+        month=4
+
+    if appoint.month8 == "MAY":
+        month=5
+
+    if appoint.month8 == "JUN":
+        month=6
+
+    if appoint.month8 == "JUL":
+        month=7
+
+    if appoint.month8 == "AUG":
+        month=8
+
+    if appoint.month8 == "SEP":
+        month=9
+
+    if appoint.month8 == "OCT":
+        month=10
+
+    if appoint.month8 == "NOV":
+        month=11
+
+    if appoint.month8 == "DEC":
+        month=12
+
+    if appoint.year8 == "2019":
+        year=2019
+
+    if appoint.year8 == "2020":
+        year=2020
+
+
+    last_period_month=(date.today().year-year)*12+(date.today().month-month)
 
     pcos_sum=0
 
@@ -116,7 +172,11 @@ def output(request):
         "bmi":bmi,
         "pcos_ratio":pcos_ratio,
         "thyroid_ratio":thyroid_ratio,
-        "prolac_ratio":prolac_ratio
+        "prolac_ratio":prolac_ratio,
+        "last_period_month":last_period_month,
+        "Weightbmi":Weightbmi,
+        
+        
     }
     return render(request,'main/output.html',context)
 

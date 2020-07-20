@@ -5,7 +5,7 @@ from main.models import Patient
 class PatientAdmin(admin.ModelAdmin):
     list_display=['name','email','dob','weight','height_feet','height_inches','waist','hip','purpose','have_baby',
     'hyperprolactinemia','pcos_pcod','hypothyroidism','other','hyperprolactinemia_days','pcos_pcod_days','hypothyroidism_days','other_days','hyperprolactinemia_days_type','pcos_pcod_days_type','hypothyroidism_days_type','other_days_type','other_type',
-    'symptoms7','month8','year8','weight9','time9','time9_d','stoppedPeriods','lessThanSixCycles','moreThanSixCycles','countinuosFlow','lastPeriodTimeMonth','lastPeriodTimeYear',
+    'symptoms7','month8','year8','weight9','time9','time9_d','stoppedPeriods','lessThanSixCycles','moreThanSixCycles','countinuosFlow',
     'currentlyNotUnderAnyMedication',
     'currentlyNotUnderAnyMedicationDuration',
     'currentlyNotUnderAnyMedicationDurationType',
@@ -116,6 +116,7 @@ class PatientAdmin(admin.ModelAdmin):
     'othersRange',
     'othersTime',
     'othersTimeType',
+    'symptoms10',
 
 
 

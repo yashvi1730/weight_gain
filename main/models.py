@@ -49,12 +49,12 @@ TIME9_D_CHOICES=(
 class Patient(models.Model):
     name=models.CharField(max_length=100)
     email=models.EmailField()
-    dob=models.DateField(default="2020-06-02")
-    weight=models.IntegerField(default="50")
+    dob=models.DateField(default="0001-01-01",null=True,blank=True)
+    weight=models.IntegerField(default=None,null=True,blank=True)
     height_feet=models.IntegerField(null=True,blank=True,default=0)
     height_inches=models.IntegerField(null=True,blank=True,default=0)
-    waist=models.IntegerField(default="28")
-    hip=models.IntegerField(default="30")
+    waist=models.IntegerField(default=None,null=True,blank=True)
+    hip=models.IntegerField(default=None,null=True,blank=True)
     purpose=models.CharField(max_length=100, choices=PURPOSE_CHOICES, default='None')
     have_baby=models.CharField(max_length=100,choices=HAVE_BABY_CHOICES,default='n')
 
@@ -72,6 +72,7 @@ class Patient(models.Model):
     other_days_type=models.CharField(max_length=100,choices=TIME9_D_CHOICES,default='m')
     other_type=models.CharField(max_length=100,default='None',null=True,blank=True)
     
+    
 
 
 
@@ -85,8 +86,7 @@ class Patient(models.Model):
     lessThanSixCycles=models.CharField(max_length=100,null=True,blank=True,default='false')
     moreThanSixCycles=models.CharField(max_length=100,null=True,blank=True,default='false')
     countinuosFlow=models.CharField(max_length=100,null=True,blank=True,default='false')
-    lastPeriodTimeMonth=models.CharField(max_length=100,choices=MONTH8_CHOICES,default='JAN')
-    lastPeriodTimeYear=models.CharField(max_length=100,choices=YEAR8_CHOICES,default='2019')
+    
 
     currentlyNotUnderAnyMedication=models.CharField(max_length=100,null=True,blank=True,default='false')
     diabestes=models.CharField(max_length=100,null=True,blank=True,default='false')
@@ -142,8 +142,8 @@ class Patient(models.Model):
     diabetes=models.CharField(max_length=100,null=True,blank=True,default='false')
     pcos=models.CharField(max_length=100,null=True,blank=True,default='false')
 
-    reportFirst =models.FileField(default='none')
-    reportSecond =models.FileField(default='none')
+    reportFirst =models.FileField(default='none',null=True,blank=True,upload_to='files/')
+    reportSecond =models.FileField(default='none',null=True,blank=True,upload_to='files/')
 
     otherExtraDetailForDoctor=models.CharField(max_length=100,null=True,blank=True,default='none')
 
@@ -191,6 +191,7 @@ class Patient(models.Model):
     othersRange=models.IntegerField(null=True,blank=True,default=None)
     othersTime=models.CharField(max_length=100,null=True,blank=True,default='false')
     othersTimeType=models.CharField(max_length=100,choices=TIME9_D_CHOICES,default='m')
+    symptoms10=models.CharField(max_length=100,default='None',null=True,blank=True)
 
 
 
