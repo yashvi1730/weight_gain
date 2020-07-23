@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+{% load static %}
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css" integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">
+    <link rel="stylesheet" href="{% static 'css/homepage.css'%}">
+    <link rel="stylesheet" href="{% static 'css/doctor_output.css'%}">
+    <link rel="stylesheet" href="{% static 'css/header.css'%}">
+    <title>Document</title>
+</head>
+<body>
+   
+    <div class="header">
+        <a href="http://www.proactiveforher.com/" class="logo" id="logo">Proactive</a>
+        <div class="header-right">
+          <a href="http://www.proactiveforher.com/">Home</a>
+          <a href="http://www.proactiveforher.com/webinar/">Webinars</a>
+          <a href="http://www.proactiveforher.com/blog/">Blog</a>
+          <a href="http://www.proactiveforher.com/doctors/">Book</a>
+        </div>
+      </div>
+      <br/>
+      <br/>
+    <div class="container" >
+
+        
+    <form method="POST"  >
+        {% csrf_token %}
+        <br/>
+
+        <div class="row" >
+            <p  id="heading"><b>Doctor Login</b></p>
+        </div>
+        <br/>
+        <div class="row" >
+        <div class="col-md-2">
+            <label for="patient_email" style="color: #54595F;font-family: lora;font-size: larger;"><strong>Email</strong></label>
+        </div>
+        <div class="col-md-4">
+            <input  type="patient_email" id="patient_email" name="patient_email" Placeholder="Your email" required>
+        </div>
+    </div>
+    <br/>
+    <div class="row">
+        <input id="submit"  type="submit" value="Submit">
+    </div>
+
+    </form>
+
+    <br/>
+</div>
+</body>
+</html>

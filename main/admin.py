@@ -1,5 +1,5 @@
 from django.contrib import admin
-from main.models import Patient
+from main.models import Patient,DoctorOutput
 
 # Register your models here.
 class PatientAdmin(admin.ModelAdmin):
@@ -7,8 +7,6 @@ class PatientAdmin(admin.ModelAdmin):
     'hyperprolactinemia','pcos_pcod','hypothyroidism','other','hyperprolactinemia_days','pcos_pcod_days','hypothyroidism_days','other_days','hyperprolactinemia_days_type','pcos_pcod_days_type','hypothyroidism_days_type','other_days_type','other_type',
     'symptoms7','month8','year8','weight9','time9','time9_d','stoppedPeriods','lessThanSixCycles','moreThanSixCycles','countinuosFlow',
     'currentlyNotUnderAnyMedication',
-    'currentlyNotUnderAnyMedicationDuration',
-    'currentlyNotUnderAnyMedicationDurationType',
 
     'diabestes',
     'diabestesDuration',
@@ -126,7 +124,17 @@ class PatientAdmin(admin.ModelAdmin):
 
     ]
 
+
+class DoctorOutputAdmin(admin.ModelAdmin):
+    list_display=['patient_email']
+
 admin.site.register(
     Patient,
     PatientAdmin,
+    
+)
+
+admin.site.register(
+    DoctorOutput,
+    DoctorOutputAdmin,
 )

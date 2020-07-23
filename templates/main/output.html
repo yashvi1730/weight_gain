@@ -6,154 +6,45 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css" integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">
-    <link rel="stylesheet" href="{% static 'css/homepage.css'%}">
+    <link rel="stylesheet" href="{% static 'css/output2.css'%}">
+    <link rel="stylesheet" href="{% static 'css/header.css'%}"/>
     <script src="https://html2canvas.hertzen.com/dist/html2canvas.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/1.3.4/jspdf.min.js"></script>
-    <script>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    </script>
-
-    <style type="text/css">
-    .gauge {
-    width: 100%;
-    max-width: 250px;
-    font-family: "Roboto", sans-serif;
-    font-size: 32px;
-    color: #004033;
-  }
-  
-.gauge__body {
-    width: 100%;
-    height: 0;
-    padding-bottom: 50%;
-    background: #BCD8DF;
-    position: relative;
-    border-top-left-radius: 100% 200%;
-    border-top-right-radius: 100% 200%;
-    overflow: hidden;
-  }
-  
-.gauge__fill {
-    position: absolute;
-    top: 100%;
-    left: 0;
-    width: inherit;
-    height: 100%;
-    background: #163948 ;
-    transform-origin: center top;
-    transform: rotate(0.25turn);
-    transition: transform 0.2s ease-out;
-  }
-  
-.gauge__cover {
-    width: 75%;
-    height: 150%;
-    background: #ffffff;
-    border-radius: 50%;
-    position: absolute;
-    top: 25%;
-    left: 50%;
-    transform: translateX(-50%);
-  
-    /* Text */
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    padding-bottom: 25%;
-    box-sizing: border-box;
-  }
-  
-
-
-
-
-
-  .gauge1 {
-    width: 100%;
-    max-width: 250px;
-    font-family: "Roboto", sans-serif;
-    font-size: 32px;
-    color: #004033;
-  }
-  
-.gauge__body1 {
-    width: 100%;
-    height: 0;
-    padding-bottom: 50%;
-    background: #BCD8DF;
-    position: relative;
-    border-top-left-radius: 100% 200%;
-    border-top-right-radius: 100% 200%;
-    overflow: hidden;
-  }
-  
-.gauge__fill1 {
-    position: absolute;
-    top: 100%;
-    left: 0;
-    width: inherit;
-    height: 100%;
-    background: #163948 ;
-    transform-origin: center top;
-    transform: rotate(0.25turn);
-    transition: transform 0.2s ease-out;
-  }
-  
-.gauge__cover1 {
-    width: 75%;
-    height: 150%;
-    background: #ffffff;
-    border-radius: 50%;
-    position: absolute;
-    top: 25%;
-    left: 50%;
-    transform: translateX(-50%);
-  
-    /* Text */
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    padding-bottom: 25%;
-    box-sizing: border-box;
-  }
-
-  .button {
-  background-color: #163948;
-  border: none;
-  color: white;
-  padding: 15px 32px;
-  text-align: center;
-  text-decoration: none;
-  display: inline-block;
-  font-size: 20px;
-  margin: 4px 2px;
-  cursor: pointer;
-}
-  
-    
-    </style>
 </head>
 <body style="font-family: open sans;font-size: larger;color:#163948;">
-    <button onclick="print()" class="button">Download PDF</button>
-   
+    <div class="header">
+        <a href="http://www.proactiveforher.com/" class="logo">Proactive</a>
+        <div class="header-right">
+          <a href="http://www.proactiveforher.com/">Home</a>
+          <a href="http://www.proactiveforher.com/webinar/">Webinars</a>
+          <a href="http://www.proactiveforher.com/blog/">Blog</a>
+          <a href="http://www.proactiveforher.com/doctors/">Book</a>
+        </div>
+      </div>
+
+    <button onclick="print()" class="button" id="button">Download PDF</button>
+    <p id="back" >Do not click on BACK from this screen</p>
     <div id="content">
-    <div  class="container" style="background-color:white;border-color: #163948 ;border-style: solid;border-radius: 20px;border-width: 7px;border-spacing: 10px;">
-        <div class="row" style="padding-left:250px ;">
-            <h1 style="text-align: center;font-family: montserrat;"><b>Weight gain: Preliminary Assessment</b></h1>
+        
+    <div  class="container" >
+        <div class="row" id="heading">
+            <h1 ><b>Weight gain: Preliminary Assessment</b></h1>
         </div>
         <br/>
         <br/>
         <div>
 
-            <table style="border: 1px solid black; border-spacing: 30px;width:1090px;">
-                <tr style="background-color:#163948;   ">
-                    <th style="color:white;text-align:center;border: 1px solid black;border-collapse: collapse;padding-right: 50px;font-family: lora;font-size: larger;">Age</th>
-                    <th style="color:white;text-align:center;border: 1px solid black;border-collapse: collapse;padding-right: 50px;font-family: lora;font-size: larger;">Name</th>
-                    <th style="color:white;text-align:center;border: 1px solid black;border-collapse: collapse;padding-right: 50px;font-family: lora;font-size: larger;">Last Period</th>
-                    <th style="color:white;text-align:center;border: 1px solid black;border-collapse: collapse;padding-right: 50px;font-family: lora;font-size: larger;">Purpose</th>
+            <table  id="table1">
+                <tr id="t1-row1">
+                    <th id="t1-col1">Age</th>
+                    <th id="t1-col1">Name</th>
+                    <th id="t1-col1">Last Period</th>
+                    <th id="t1-col1">Purpose</th>
                 </tr>
-                <tr style="text-align: center;">
-                 <td style="border: 1px solid black;border-collapse: collapse;">
+                <tr id="t1-row2">
+                 <td  id="t1-col2">
                     {% if age < 200 %}
                     {{age}}
                     {% else %}
@@ -161,23 +52,23 @@
                     {% endif %}
 
                 </td>
-                 <td style="border: 1px solid black;border-collapse: collapse;">{{appoint.name}}</td>
-                 <td style="border: 1px solid black;border-collapse: collapse;">{{appoint.month8}}  {{appoint.year8}}<br/> {{last_period_month}} months since last period</td>
-                 <td style="border: 1px solid black;border-collapse: collapse;">{{appoint.get_purpose_display}}</td>
+                 <td  id="t1-col2">{{appoint.name}}</td>
+                 <td  id="t1-col2">{{appoint.month8}},  {{appoint.year8}}<br/> {{last_period_month}} months since last period</td>
+                 <td  id="t1-col2">{{appoint.get_purpose_display}}</td>
              </tr>
             </table>
         </div>
         <div class="row">
             <div class="col-md-4">
-                <table style="border: 1px solid black;width:372px;height:680px;">
+                <table  id="table2">
 
-                    <tr style="background-color: #163948; height:50px;">
-                        <th  style="text-align:center;border: 1px solid black;padding-right: 50px;color: white;font-family: lora;font-size: larger;">Waist/Hip Ratio</th>
+                    <tr  id="t2-row1">
+                        <th id="t2-col1">Waist/Hip Ratio</th>
                     </tr>
     
                     <tr>
-                        <td style="border: 1px solid black;text-align: center;">
-                            <div class="gauge" style="margin-left: 55px;">
+                        <td id="t2-col2">
+                            <div class="gauge" >
                                 <div class="gauge__body">
                                   <div class="gauge__fill"></div>
                                   <div class="gauge__cover"></div>
@@ -188,46 +79,42 @@
     
                             {% if waist_hip <= 0.8 %}
                             <p><b>Normal</b></p>
-                            <p style="border: 5px;border-style: solid;width: 300px;margin-left: 30px;"><b>Normal:</b> < 0.8 <br/>
+                            <p  id="t2-p1"><b>Normal:</b> < 0.8 <br/>
                                 <b>Over-weight:</b> 0.8 - 0.85<br/>
                                 <b>Obese:</b> >0.85 </p>
-                            <p style="text-align: center;">Your waist to hip ratio shows that you are at low risks from fat accumulation in belly area.</p>
+                            <p id="t2-p2">Your waist to hip ratio shows that you are at low risks from fat accumulation in belly area.</p>
 
                             {% elif waist_hip <= 0.85 %}
                             <p><b>Over-weight</b></p>
-                            <p style="border: 5px;border-style: solid;width: 300px;margin-left: 30px;"><b>Normal:</b> < 0.8 <br/>
+                            <p  id="t2-p1"><b>Normal:</b> < 0.8 <br/>
                             <b>Over-weight:</b> 0.8 - 0.85<br/>
                             <b>Obese:</b> >0.85 </p>
-                            <p style="text-align: center;">Your waist to hip ratio show that you face from fat accumulation in belly area.</p>
+                            <p id="t2-p2">Your waist to hip ratio show that you face from fat accumulation in belly area.</p>
 
                             {% else %}
                             <p><b>Obese</b></p>
-                            <p style="border: 5px;border-style: solid;width: 300px;margin-left: 30px;"><b>Normal:</b> < 0.8 <br/>
+                            <p  id="t2-p1"><b>Normal:</b> < 0.8 <br/>
                             <b>Over-weight:</b> 0.8 - 0.85<br/>
                             <b>Obese:</b> >0.85 </p>
-                            <p style="text-align: center;">"You have an apple shaped body. Women of this body shape tend to have more fat accumulated near the belly and internal organs. This is often a signal of multiple health risks including High Cholesterol, Diabetes ad fertility, among others
+                            <p id="t2-p2">You have an apple shaped body. Women of this body shape tend to have more fat accumulated near the belly and internal organs. This is often a signal of multiple health risks including high Cholesterol, diabetes ad fertility, among others.
                             {% endif %}</p>
     
-                            
-    
-    
-                             
-                             </td>
+                            </td>
                     </tr>
     
                 </table>
             </div>
 
             <div class="col-md-4">
-                <table style="border: 1px solid black;width:373px;height:110px;">
+                <table id="table3">
 
-                    <tr style="background-color: #163948;height: 50px;">
-                        <th  style="text-align:center;border: 1px solid black;padding-right: 50px;color: white;font-family: lora;font-size: larger;">Weight Gained</th>
+                    <tr id="t3-row1">
+                        <th id="t3-col1" >Weight Gained</th>
                     </tr>
     
                     <tr>
                         
-                        <td style="border: 1px solid black;padding-right: 50px;text-align: center;">
+                        <td  id="t3-col2">
                             <br/>
                              {{weight_gained}}% in {{appoint.time9}} {{appoint.get_time9_d_display}} 
     
@@ -239,60 +126,60 @@
     
                 </table>
 
-                <table style="border: 1px solid black;width:373px;height:250px;">
+                <table id="table4"> 
 
-                    <tr style="background-color:#163948;height:50px;">
-                        <th  style="text-align:center;border: 1px solid black;padding-right: 50px;color: white;font-family: lora;font-size: larger;">Pregnancy within past year</th>
+                    <tr id="t4-row1">
+                        <th id="t4-col1">Pregnancy within past year</th>
                     </tr>
     
-                    <tr style="text-align: center;">
+                    <tr id="t4-row2">
                         
-                        <td style="border: 1px solid black;border-collapse: collapse;padding-right: 50px;">
+                        <td  id="t4-col2">
                              {% if appoint.have_baby == "y" %}
-                               <p style="text-align: center;"><b>Yes</b></p>
-                               <p>Ideally, pregnancy weight should ideally be lost within 1 year of delivering the baby.</p>
+                               <p id="t4-p1"><b>Yes</b></p>
+                               <p>Pregnancy weight should ideally be lost within 1 year of delivering the baby.</p>
                              {% else %}
-                             <p style="text-align: center;"><b>No</b></p>
+                             <p id="t4-p1"><b>No</b></p>
                              {% endif %}
                         </td>
                     </tr>
     
                 </table>
 
-                <table style="border: 1px solid black;width:373px;height:100px;">
+                <table  id="table5">
 
-                    <tr style="background-color:#163948;height:50px;">
-                        <th  style="text-align:center;border: 1px solid black;padding-right: 50px;color: white;font-family: lora;font-size: larger;">High-Carb Intake</th>
+                    <tr id="t5-row1">
+                        <th id="t5-col1">High-Carb Intake</th>
                     </tr>
 
 
-                    <tr style="text-align: center;">
+                    <tr id="t5-row2">
                         
-                        <td style="border: 1px solid black;border-collapse: collapse;padding-right: 50px;">
-                            <p style="text-align: center;">{{appoint.get_eatFoodValue_display}}</p>
+                        <td  id="t5-col2">
+                            <p id="t5-p1">{{appoint.get_eatFoodValue_display}}</p>
                         </td>
                     </tr>
 
-                    <tr style="background-color:#163948;height:50px;">
-                        <th  style="text-align:center;border: 1px solid black;padding-right: 50px;color: white;font-family: lora;font-size: larger;">Physical exercise</th>
+                    <tr id="t5-row1">
+                        <th id="t5-col1">Physical exercise</th>
                     </tr>
 
 
-                    <tr style="text-align: center;">
+                    <tr id="t5-row2">
                         
-                        <td style="border: 1px solid black;border-collapse: collapse;padding-right: 50px;">
-                            <p style="text-align: center;">{{appoint.get_workoutValue_display}}</p>
+                        <td  id="t5-col2">
+                            <p id="t5-p1">{{appoint.get_workoutValue_display}}</p>
                         </td>
                     </tr>
 
-                    <tr style="background-color:#163948;height:50px;">
-                        <th  style="text-align:center;border: 1px solid black;padding-right: 50px;color: white;font-family: lora;font-size: larger;">Sleep</th>
+                    <tr id="t5-row1">
+                        <th id="t5-col1">Sleep</th>
                     </tr>
 
 
-                    <tr style="text-align: center;">
+                    <tr id="t5-row2">
                         
-                        <td style="border: 1px solid black;border-collapse: collapse;padding-right: 50px;">
+                        <td  id="t5-col2">
                             <p >{{appoint.sleepValue}}{{appoint.get_sleepValueType_display}} hrs
 
                                 {% if appoint.sleepValue < 6.5 %}
@@ -311,15 +198,25 @@
 
             <div class="col-md-4">
                 
-                <table style="border: 1px solid black;width:346px;height:680px;">
+                <table  id="table6">
 
-                    <tr style="background-color:#163948;height:50px;">
-                        <th  style="text-align:center;border: 1px solid black;color: white;font-family: lora;font-size: larger;">BMI</th>
+                    <tr  id="t6-row1">
+                        <th id="t5-col1">BMI</th>
                     </tr>
                     
-                    <tr style="text-align: center;">
-                        <td style="border: 1px solid black;">
-                            <div class="gauge1" style="margin-left: 50px;margin-top: 45px;">
+                    <tr id="t6-row2">
+                        <td id="t6-col2">
+                            <p>{% if bmi >= 25 %}
+                                You would need to lose at least {{Weightbmi}} kgs to get to a normal BMI
+                                {% endif %}
+
+                                {% if bmi < 18.5 %}
+                                You would need to gain at least {{Weightbmi}} kgs to get a normal BMI
+                                {% endif %}</p>
+
+
+
+                            <div class="gauge1">
                                 <div class="gauge__body1">
                                   <div class="gauge__fill1"></div>
                                   <div class="gauge__cover1"></div>
@@ -361,23 +258,17 @@
                             <p>Weight: {{appoint.weight}}</p>
                             <p>Height: {{appoint.height_feet}} ft   {{appoint.height_inches}} inch </p>
 
-                            <p style="border: 5px;border-style: solid;width: 300px;margin-left: 30px;">
-                                Very severly underweight  < 16 <br/>
-                                Severly underweight       16.0 - 16.9<br/>
-                                Underweight               17.0 - 18.4<br/>
-                                Normal                    18.8 - 24.9<br/>
-                                Overweight                25.0 - 29.9<br/>
-                                Obese Class I             30.0 - 34.9<br/>
-                                Obese Class II            35.0 - 39.9<br/>
+                            <p id="t6-p1">
+                                Very severly underweight &nbsp; < 16 <br/>
+                                Severly underweight&nbsp;16.0 - 16.9<br/>
+                                Underweight  &nbsp;             17.0 - 18.4<br/>
+                                Normal      &nbsp;              18.8 - 24.9<br/>
+                                Overweight   &nbsp;             25.0 - 29.9<br/>
+                                Obese Class I   &nbsp;          30.0 - 34.9<br/>
+                                Obese Class II  &nbsp;          35.0 - 39.9<br/>
                                 <br/>
 
-                                {% if bmi >= 25 %}
-                                You would need to lose at least {{Weightbmi}} kgs to get to a normal BMI
-                                {% endif %}
-
-                                {% if bmi < 18.5 %}
-                                You would need to gain at least {{Weightbmi}} kgs to get a normal BMI
-                                {% endif %}
+                                
                             </p>
                         </td>
                     </tr>
@@ -388,11 +279,11 @@
             </div>
         </div>
         <div class="row">
-        <table style="border: 1px solid black;width:1090px;height: 835px;margin-top: -20px;margin-left: 15px;">
-            <tr  style="background-color: #163948;">
-                <td colspan="2" style="border: 1px solid black;padding-right: 120px;text-align:center;color:white;font-family: lora;font-size: larger;">
-                    <p style="font-size: 22px;"><b>Symptomatic deductions</b></p>
-                    <p style="font-size: 18px;">*These deductions are based purely on your inputs in the questionnaire. Please discuss the with the medical practitioner.</p>
+        <table id="table7">
+            <tr  id="t7-row1">
+                <td colspan="2" id="t7-col1">
+                    <p id="t7-p1"><b>Symptomatic deductions</b></p>
+                    <p  id="t7-p2">*These deductions are based purely on your inputs in the questionnaire. Please discuss the with the medical practitioner.</p>
                 </td>
             </tr>
 
@@ -400,12 +291,12 @@
             
 
             <tr>
-                <td style="border: 1px solid black;padding-right: 120px;padding-left: 5px;">
+                <td id="t7-col2">
                     <b>Strongly Symptomatic</b>
                 
                 </td>
 
-                <td style="border: 1px solid black;padding-right: 120px;padding-left: 5px;">
+                <td id="t7-col2">
                     {% if pcos_ratio > 0.4 %}
                        PCOS
                        <br/>
@@ -425,12 +316,12 @@
             </tr>
 
             <tr>
-                <td style="border: 1px solid black;padding-right: 120px;padding-left: 5px;">
+                <td id="t7-col2">
                     <b>Mildly Symptomatic</b>
                 
                 </td>
 
-                <td style="border: 1px solid black;padding-right: 120px;padding-left: 5px;">
+                <td id="t7-col2">
                     {% if pcos_ratio > 0.2 and pcos_ratio < 0.4 %}
                        PCOS
                        <br/>
@@ -449,25 +340,27 @@
                 </td>
             </tr>
 
-            <tr  style="background-color: #163948;">
-                <th colspan="2" style="border: 1px solid black;padding-right: 120px;text-align:center;color: white;font-family: lora;font-size: larger;">
-                    <p style="text-align: center;font-size: 22px;">Possible risks and complications</p>
+            <tr id="t7-row2">
+                <th colspan="2" id="t7-col3" >
+                    <p id="t7-p3">Possible risks and complications</p>
                     
                 </th>
 
             </tr>
 
-            <tr style="background-color: #163948;">
-                <td colspan="2" style="border: 1px solid black;padding-right: 120px;text-align:center;color: white;font-family: lora;font-size: larger;">
-                    <p style="text-align: center;font-size: 21px;"><b>Family History</b></p>
-                    <p style="text-align: center;font-size: 18px;"> You are genetically predisposed to the following health conditions because they(or a related health condition) run in your family.</p>
+            <tr  id="t7-row2">
+                <td colspan="2" id="t7-col3" >
+                    <p  id="t7-p4"><b>Family History</b></p>
+                    <p  id="t7-p5"> You are genetically predisposed to the following health conditions because they(or a related health condition) run in your family.</p>
                     
                 </td>
             </tr>
 
             <tr>
-                <td colspan="2" style="border: 1px solid black;padding-right: 120px;padding-left: 5px;" >
-                    
+                <td colspan="2" id="t7-col2">
+                    {% if appoint.highBloodPressure == "false" and appoint.highCholesterol == "false" and appoint.familyHypothyroidism == "false" and appoint.diabetes == "false" and appoint.pcos == "false" %}
+                    <b> N/A </b>
+                    {% endif %}
                     {% if appoint.highBloodPressure == "true" %}
                     High Blood Pressure
                     <br/>
@@ -500,15 +393,19 @@
                 </td>
             </tr>
 
-            <tr style="background-color: #163948;">
-                <th colspan="2" style="border: 1px solid black;padding-right: 120px;text-align:center;color: white;font-family: lora;font-size: larger;">
-                    <p style="text-align: center;font-size: 22px;">From Symptoms or Known Health Issues</p>
+            <tr  id="t7-row2">
+                <th colspan="2" id="t7-col3" >
+                    <p  id="t7-p3">From symptoms or known health issues</p>
                     
                 </th>
             </tr>
 
             <tr>
-                <td colspan="2" style="border: 1px solid black;border-collapse: collapse;padding-right: 120px; padding-left: 5px;">
+                <td colspan="2"  id="t7-col2">
+                {% if pcos_ratio < 0.2 and  appoint.pcos_pcod == "false" and thyroid_ratio < 0.2 and appoint.hypothyroidism == "false" and prolac_ratio < 0.2 and appoint.hyperprolactinemia == "false" %}
+                <b>N/A</b>
+                {% endif %}
+
                 {% if pcos_ratio > 0.2 or appoint.pcos_pcod == "true" %}
                 <p><b>Risk from PCOS:</b></p>
                 <p>Diabetes Type 2, Sleep Apnea, Cardiovascular Diseases and Hypertension, Hypertension in Pregnancy, Obesity, Impaired Glucose Intolerance (Pre-Diabetic).</p>
@@ -526,14 +423,14 @@
                 </td>
             </tr>
 
-            <tr style="background-color: #163948;">
-                <th  colspan="2" style="border: 1px solid black;padding-right: 120px;text-align:center;color: white;font-family: lora;font-size: larger;">
-                    <p style="text-align: center;font-size: 22px;">Other possible causes of weight gain</p>
+            <tr id="t7-row2">
+                <th  colspan="2" id="t7-col3" >
+                    <p id="t7-p3">Other possible causes of weight gain</p>
                     
                 </th>
             </tr>
             <tr>
-                <td colspan="2" style="padding-left: 5px;">
+                <td colspan="2"  id="t7-col4"> 
                 
                    Stress
                    <br/>
@@ -611,19 +508,19 @@
         </div>
         <br/>
 
-        <h3 style="text-align: center;"><b>Please find below the information you provided.</b></h3>
+        <h3  id="t6-row2"><b>Please find below the information you provided.</b></h3>
         <br/>
 
         <div class="row">
-            <table style="border: 1px solid black;width:1090px;height: 160px;margin-left: 15px;">
-                <tr style="background-color:  #163948 ;">
-                    <th style="text-align:center;border: 1px solid black;padding-right: 50px;color: white;font-family: lora;font-size: larger;">Previous Diagnosis</th>
-                    <th  colspan="2" style="text-align:center;border: 1px solid black;padding-right: 50px;color: white;font-family: lora;font-size: larger;">Files Uploaded</th>
+            <table  id="table8">
+                <tr  id="t7-row2">
+                    <th id="t8-col1">Previous Diagnosis</th>
+                    <th  colspan="2" id="t8-col1">Files Uploaded</th>
                     
                     
                 </tr>
                 <tr >
-                 <td style="border: 1px solid black;padding-right: 120px;text-align: left;margin-left: 5px;">
+                 <td  id="t8-col2">
                      {% if appoint.hyperprolactinemia == "true" %}
                      hyperprolactinemia
                      <br/>
@@ -643,26 +540,40 @@
                 
                 
                 </td>
-                 <td style="border: 1px solid black;border-collapse: collapse;text-align: center;"><a href="{{appoint.reportFirst.url}}">{{appoint.reportFirst}}</a></td>
-                 <td style="border: 1px solid black;border-collapse: collapse;text-align: center;"><a href="{{appoint.reportSecond.url}}">{{appoint.reportSecond}}</a> </td>
+                 <td  id="t8-col3">
+                    {% if appoint.reportFirst == "none" %} 
+                    <b>N/A</b>
+                    {% else %}
+                     <a href="{{appoint.reportFirst.url}}">
+                     {{appoint.reportFirst}}</a>
+                    {% endif %}
+                    </td>
+                 <td  id="t8-col3">
+                    {% if appoint.reportSecond == "none" %} 
+                    <b>N/A</b>
+                    {% else %}
+                     <a href="{{appoint.reportSecond.url}}">
+                    {{appoint.reportSecond}}</a>
+                    {% endif %}  
+                    </td>
                  
              </tr>
             </table>
 
-            <table style="border: 1px solid black;width:1090px;margin-left: 15px;">
-                <tr style="text-align: left;">
-                    <td style="border: 1px solid black;background-color:#163948;color: white;width:250px;padding-left: 5px;">Particular Concerns:</td>
-                    <td style="border: 1px solid black;padding-right: 120px;padding-left: 5px;">{{appoint.symptoms7}}</td>
+            <table  id="table9">
+                <tr  id="t9-row1">
+                    <td  id="t9-col1">Particular Concerns:</td>
+                    <td  id="t9-col2">{{appoint.symptoms7}}</td>
                 </tr>
 
             </table>
 
-            <table style="border: 1px solid black;width: 1090px;margin-left: 15px;">
-                <tr style="background-color: #163948;">
-                    <th colspan="2" style="text-align:center;border: 1px solid black;padding-right: 50px;color: white;font-family: lora;font-size: larger;width: 545px;">Symptoms</th>
+            <table  id="table10">
+                <tr id="t7-row2">
+                    <th colspan="2"  id="t10-col1">Symptoms</th>
                 </tr>
                 <tr>
-                    <td style="border: 1px solid black;padding-right: 120px;padding-left: 5px;width: 545px;">
+                    <td id="t10-col2">
                        {% if appoint.hairLoss == "true" %}
                           Hair Loss 
                        {% endif %}
@@ -745,12 +656,12 @@
                        {% endif %}
                     </td>
 
-                    <td style="border: 1px solid black;padding-right: 120px;padding-left: 5px;width: 545px;">
+                    <td id="t10-col2">
                         <b>Menstrual Period Details:</b>
                         <br/>
                         <b>Last Period</b>
                         <br/>
-                        {{appoint.month8}}{{appoint.year8}}  {{last_period_month}} months since last period
+                        {{appoint.month8}},{{appoint.year8}}  <br/>{{last_period_month}} months since last period
                         <br/>
 
                         {% if appoint.stoppedPeriods == "true" %}
@@ -779,14 +690,14 @@
 
             </table>
 
-            <table style="border: 1px solid black;width: 1090px;margin-left: 15px;">
-                <tr style="background-color: #163948 ">
-                    <th style="text-align:center;border: 1px solid black;padding-right: 50px;color: white;font-family: lora;font-size: larger;width: 545px;">Medical Conditions in Family</th>
-                    <th style="text-align:center;border: 1px solid black;padding-right: 50px;color: white;font-family: lora;font-size: larger;width: 545px;">Ongoing Medication/Supplements for</th>
+            <table  id="table11">
+                <tr id="t7-row2">
+                    <th id="t11-col1">Medical Conditions in Family</th>
+                    <th id="t11-col1">Ongoing Medication/Supplements for</th>
 
                 </tr>
                 <tr>
-                    <td style="border: 1px solid black;padding-left: 5px;">
+                    <td id="t11-col2" >
 
                        {% if appoint.highBloodPressure == "true" %}
                          High Blood Pressure
@@ -820,7 +731,7 @@
 
                     </td>
 
-                    <td style="border: 1px solid black;padding-left: 5px;">
+                    <td id="t11-col2">
                         <ul>
                         {% if appoint.currentlyNotUnderAnyMedication == "true" %}
                         <li>Currently not under medication</li>
@@ -886,19 +797,19 @@
 
             </table>
 
-            <table style="border: 1px solid black; width: 1090px;margin-left: 15px;">
-                <tr style="background-color: #163948 ;">
-                    <th style="text-align:center;border: 1px solid black;padding-right: 50px;color: white;font-family: lora;font-size: larger;width: 545px;">Known Allergies</th>
-                    <th style="text-align:center;border: 1px solid black;padding-right: 50px;color: white;font-family: lora;font-size: larger;width: 545px;">Recent Surgery/Illness History</th>
+            <table  id="table12">
+                <tr id="t7-row2">
+                    <th id="t12-col1">Known Allergies</th>
+                    <th id="t12-col1">Recent Surgery/Illness History</th>
 
                 </tr>
 
                 <tr >
-                    <td style="border: 1px solid black;padding-right: 120px;padding-left: 5px;">
+                    <td id="t12-col2">
                     {{appoint.medicalAllergies}}
                     </td>
 
-                    <td style="border: 1px solid black;padding-right: 120px;padding-left: 5px;">
+                    <td  id="t12-col2">
                       
                        {% if appoint.undergoneSurgery == "true" %}
                        Undergone surgery within the past year
@@ -921,11 +832,24 @@
                 </tr>
 
             </table>
+            
+
+            <table  id="table13">
+                <tr style="background-color:#163948 ;" id="t13-r1">
+                    <th id="t13-col1" style="text-align:center;border: 1px solid black;padding-right: 50px;color: white;font-family: lora;font-size: larger;
+                    width: 545px;">Additional details you want the physician to know</th>
+                </tr>
+                <tr >
+                    <td id="t13-col2" style="padding-left: 5px;">
+                        {{appoint.otherExtraDetailForDoctor}}
+                    </td>
+                </tr>
+            </table>
 
 
         </div>
         
-        
+      <br/>  
 </div>
 </div>
 
@@ -956,12 +880,12 @@
         const gaugeElement1 = document.querySelector(".gauge1");
 
         function setGaugeValue1(gauge1, value1) {
-        if (value1 < 0 ) {
+        if (value1 < 0 || value1 > 40 ) {
         return;
         }
 
         gauge1.querySelector(".gauge__fill1").style.transform = `rotate(${
-        value1 / 2
+        value1 / 80
         }turn)`;
         gauge1.querySelector(".gauge__cover1").textContent = `${
         value1}`;

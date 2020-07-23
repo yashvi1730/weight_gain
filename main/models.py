@@ -47,8 +47,11 @@ TIME9_D_CHOICES=(
     ('y','years')
 )
 class Patient(models.Model):
+
+
+    
     name=models.CharField(max_length=100)
-    email=models.EmailField()
+    email=models.EmailField(error_messages = {"@":"Please include a valid email address"})
     dob=models.DateField(default="0001-01-01",null=True,blank=True)
     weight=models.IntegerField(default=None,null=True,blank=True)
     height_feet=models.IntegerField(null=True,blank=True,default=0)
@@ -100,7 +103,7 @@ class Patient(models.Model):
     Opioids=models.CharField(max_length=100,null=True,blank=True,default='false')
     antiHistamines=models.CharField(max_length=100,null=True,blank=True,default='false')
 
-    currentlyNotUnderAnyMedicationDuration=models.CharField(max_length=100,null=True,blank=True,default='false')
+    
     diabestesDuration=models.CharField(max_length=100,null=True,blank=True,default='false')
     migraneDuration=models.CharField(max_length=100,null=True,blank=True,default='false')
     medicationHighBloodPressureDuration=models.CharField(max_length=100,null=True,blank=True,default='false')
@@ -112,7 +115,7 @@ class Patient(models.Model):
     OpioidsDuration=models.CharField(max_length=100,null=True,blank=True,default='false')
     antiHistaminesDuration=models.CharField(max_length=100,null=True,blank=True,default='false')
 
-    currentlyNotUnderAnyMedicationDurationType=models.CharField(max_length=100,choices=TIME9_D_CHOICES,default='m')
+    
     diabestesDurationType=models.CharField(max_length=100,choices=TIME9_D_CHOICES,default='m')
     migraneDurationType=models.CharField(max_length=100,choices=TIME9_D_CHOICES,default='m')
     medicationHighBloodPressureDurationType=models.CharField(max_length=100,choices=TIME9_D_CHOICES,default='m')
@@ -195,7 +198,8 @@ class Patient(models.Model):
 
 
 
-
+class DoctorOutput(models.Model):
+    patient_email=models.EmailField()
     
     
     

@@ -1,0 +1,45 @@
+.container {
+    background-color:white;
+    border-color: #163948 ;
+    border-style: solid;
+    border-radius: 20px;
+    border-width: 7px;
+    width: 500px;
+}
+
+#heading {
+    margin-left: 100px;
+    font-family: montserrat;
+    font-size: 50px;
+}
+
+#patient_email {
+   width:300px;
+}
+
+#submit {
+    background-color:#163948;
+    margin-left: 180px;
+}
+
+@media only screen and (max-width: 500px) {
+   .container{
+       width:280px;
+   }
+
+   #heading {
+    margin-left: 50px;
+    font-family: montserrat;
+    font-size: 30px;
+}
+    #patient_email {
+        width:240px;
+    }
+
+    #submit {
+        background-color:#163948;
+        margin-left: 80px;
+        width: 90px;
+        
+    }
+}
