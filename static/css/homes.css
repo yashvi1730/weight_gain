@@ -170,6 +170,37 @@ body {
     margin-left: 500px;
 }
 
+.fa {  
+    padding: 20px;
+    font-size: 70px;
+    width: 50px;
+    text-align: left;
+    text-decoration: none;
+    
+  }
+
+  .fa:hover {
+      opacity: 0.7;
+  }
+
+  .fa-facebook {
+    background:#163948;
+    color: white;
+   
+  }
+
+  .fa-instagram {
+    background: #163948;
+    color: white;
+   
+  }
+
+  .fa-linkedin {
+    background:#163948;
+    color: white;
+    
+  }
+
 @media only screen and (max-width: 500px) {
     .container {
         background-color:white;
@@ -291,6 +322,8 @@ body {
         background-color:#163948;
         margin-left: 400px;
     }
+
+    
 
     
     

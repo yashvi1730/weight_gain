@@ -10,3 +10,6 @@ class DoctorOutputForm(forms.ModelForm):
     class Meta:
         model = DoctorOutput
         fields='__all__'
+
+class FooterForm(forms.Form):
+    f_email=forms.EmailField()

@@ -1,0 +1,91 @@
+#f_submit {
+    width: 590px;
+    background-color: gray;
+    border-radius: 5px;
+    color: white;
+    margin-top: 10px;
+}
+
+#f_1 {
+   margin-left:360px;
+}
+
+#f_2 {
+    font-size:large;
+    margin-left: 20px;
+    color: white;
+}
+
+#f_3{
+    font-size: large;
+    color: white;
+    margin-left: 20px;
+}
+
+#f_submit {
+    width: 590px;
+    background-color: gray;
+    border-radius: 5px;
+    color: white;
+    margin-top: 10px;
+ }
+
+ #f_email {
+    height: 30px;
+}
+
+#comment {
+    font-family:sans-serif;
+    font-size: 35px;
+    text-align: center;
+    color: #163948;
+}
+
+#comment1 {
+    text-align: center;
+}
+
+
+
+@media only screen and (max-width: 500px) {
+    #f_submit {
+        width: 458px;
+        background-color: gray;
+        border-radius: 5px;
+        color: white;
+        margin-top: 10px;
+    }
+
+    footer {
+        width: 290px;
+    }
+
+    #f_1 {
+        margin-left:20px;
+     }
+
+     #f_2 {
+        font-size:medium;
+        margin-left: 0px;
+        color: white;
+    }
+
+    #f_3{
+        font-size: medium;
+        color: white;
+        margin-left: 0px;
+    }
+
+    #f_submit {
+       width: 100px;
+       background-color: gray;
+       border-radius: 5px;
+       color: white;
+       margin-top: 10px;
+    }
+
+    #f_email {
+       height: 30px;
+       width:100px;
+    }
+}

@@ -127,7 +127,7 @@ class Patient(models.Model):
     OpioidsDurationType=models.CharField(max_length=100,choices=TIME9_D_CHOICES,default='m')
     antiHistaminesDurationType=models.CharField(max_length=100,choices=TIME9_D_CHOICES,default='m')
     
-    medicalAllergies=models.CharField(max_length=100,null=True,blank=True,default='none')
+    medicalAllergies=models.CharField(max_length=100,null=True,blank=True,default=None)
 
     undergoneSurgery=models.CharField(max_length=100,null=True,blank=True,default='false')
     physicallyImmobile=models.CharField(max_length=100,null=True,blank=True,default='false')

@@ -8,9 +8,9 @@
 }
 
 #heading {
-    margin-left: 100px;
+    margin-left: 350px;
     font-family: montserrat;
-    font-size: 50px;
+    font-size: 30px;
 }
 
 #patient_email {
@@ -22,13 +22,25 @@
     margin-left: 180px;
 }
 
+#heading1{
+    margin-left: 350px;
+    font-family: Sans-serif;
+    font-size: 15px;
+}
+
+#heading2 {
+    margin-left: 15px;
+    font-family: Sans-serif;
+    font-size: 15px;
+}
+
 @media only screen and (max-width: 500px) {
    .container{
        width:280px;
    }
 
    #heading {
-    margin-left: 50px;
+    margin-left: 10px;
     font-family: montserrat;
     font-size: 30px;
 }
@@ -41,5 +53,11 @@
         margin-left: 80px;
         width: 90px;
         
+    }
+
+    #heading1{
+        margin-left: 15px;
+        font-family:Sans-serif;
+
     }
 }

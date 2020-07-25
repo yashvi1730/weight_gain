@@ -1,6 +1,6 @@
 from django.shortcuts import render
 from main.models import Patient,DoctorOutput
-from main.forms import PatientForm,DoctorOutputForm 
+from main.forms import PatientForm,DoctorOutputForm,FooterForm
 from django.shortcuts import redirect
 from datetime import date, timedelta
 
@@ -23,12 +23,15 @@ def homepage(request):
     today_month=date.today().month
     today_year=date.today().year
 
+    form1 = FooterForm()
+
     
 
     context={
         "form":form,
         "today_month":today_month,
-        "today_year":today_year
+        "today_year":today_year,
+        "form1":form1
         
     }
 
@@ -39,27 +42,74 @@ def homepage(request):
 
 def output(request):
     appoint=Patient.objects.all().last()
-    age = (date.today() - appoint.dob) // timedelta(days=365.2425)
-    weight_gain=(appoint.weight9/(appoint.weight-appoint.weight9))*100
-    weight_gained=round(weight_gain,2)
-    waisthip=appoint.waist/appoint.hip
-    waist_hip=round(waisthip,2)
-    height=(appoint.height_feet*30.48+appoint.height_inches*2.54)/100
-    BMI=appoint.weight/(height*height)
-    ideal_weight=24.9*height*height
+    if appoint.dob == None:
+        age =""
+    else:
+        age = (date.today() - appoint.dob) // timedelta(days=365.2425)
 
-    bmi=round(BMI,2)
-    weightbmi=0
 
-    if bmi >= 25:
-        weightbmi = appoint.weight - ideal_weight
 
-    elif bmi < 18.5:
-        weightbmi = ideal_weight - appoint.weight
+    
+    if appoint.weight == None or appoint.weight9 == None:
+        weight_gained="n"
+    else:
+        weight_gain=(appoint.weight9/(appoint.weight-appoint.weight9))*100
+        weight_gained=round(weight_gain,2)
 
     
 
-    Weightbmi=round(weightbmi,2)
+
+    if appoint.waist == None or appoint.hip == None:
+        waist_hip=0
+    else:
+        waisthip=appoint.waist/appoint.hip
+        waist_hip=round(waisthip,2)
+
+
+
+    if appoint.height_feet == None or appoint.height_inches == None:
+        height=0
+    else:
+        height=(appoint.height_feet*30.48+appoint.height_inches*2.54)/100
+
+    
+
+
+    if appoint.weight == None or height == 0 :
+        bmi=0
+    else:
+        BMI=appoint.weight/(height*height)
+        bmi=round(BMI,2)
+
+
+
+
+    if height == 0:
+        ideal_weight=""
+    else:
+        ideal_weight=24.9*height*height
+
+   
+
+    
+    weightbmi=0
+
+    if bmi == 0:
+        Weightbmi="n"
+
+    else:
+
+        if bmi >= 25:
+            weightbmi = appoint.weight - ideal_weight
+
+        elif bmi < 18.5:
+            weightbmi = ideal_weight - appoint.weight
+        
+        Weightbmi=round(weightbmi,2)
+
+    
+
+    
 
     if appoint.month8 == "JAN":
         month=1
@@ -174,6 +224,7 @@ def output(request):
     
 
     print(appoint)
+    print(appoint.medicalAllergies)
     context={
         "appoint":appoint,
         "age":age,
@@ -220,24 +271,74 @@ def response(request):
     print(email_id)
     appoint=Patient.objects.filter(email=email_id).first()
 
-    age = (date.today() - appoint.dob) // timedelta(days=365.2425)
-    weight_gain=(appoint.weight9/(appoint.weight-appoint.weight9))*100
-    weight_gained=round(weight_gain,2)
-    waisthip=appoint.waist/appoint.hip
-    waist_hip=round(waisthip,2)
-    height=(appoint.height_feet*30.48+appoint.height_inches*2.54)/100
-    BMI=appoint.weight/(height*height)
-    ideal_weight=24.9*height*height
+    if appoint.dob == None:
+        age =""
+    else:
+        age = (date.today() - appoint.dob) // timedelta(days=365.2425)
 
-    bmi=round(BMI,2)
 
-    if bmi >= 25:
-        weightbmi = appoint.weight - ideal_weight
 
-    elif bmi < 18.5:
-        weightbmi = ideal_weight - appoint.weight
+    
+    if appoint.weight == None or appoint.weight9 == None:
+        weight_gained="n"
+    else:
+        weight_gain=(appoint.weight9/(appoint.weight-appoint.weight9))*100
+        weight_gained=round(weight_gain,2)
 
-    Weightbmi=round(weightbmi,2)
+    
+
+
+    if appoint.waist == None or appoint.hip == None:
+        waist_hip=0
+    else:
+        waisthip=appoint.waist/appoint.hip
+        waist_hip=round(waisthip,2)
+
+
+
+    if appoint.height_feet == None or appoint.height_inches == None:
+        height=0
+    else:
+        height=(appoint.height_feet*30.48+appoint.height_inches*2.54)/100
+
+    
+
+
+    if appoint.weight == None or height == 0 :
+        bmi=0
+    else:
+        BMI=appoint.weight/(height*height)
+        bmi=round(BMI,2)
+
+
+
+
+    if height == 0:
+        ideal_weight=""
+    else:
+        ideal_weight=24.9*height*height
+
+   
+
+    
+    weightbmi=0
+
+    if bmi == 0:
+        Weightbmi="n"
+
+    else:
+
+        if bmi >= 25:
+            weightbmi = appoint.weight - ideal_weight
+
+        elif bmi < 18.5:
+            weightbmi = ideal_weight - appoint.weight
+        
+        Weightbmi=round(weightbmi,2)
+
+    
+
+    
 
     if appoint.month8 == "JAN":
         month=1
@@ -283,6 +384,8 @@ def response(request):
 
 
     last_period_month=(date.today().year-year)*12+(date.today().month-month)
+
+    
 
     pcos_sum=0
 
@@ -350,6 +453,7 @@ def response(request):
     
 
     print(appoint)
+    print(appoint.medicalAllergies)
     context={
         "appoint":appoint,
         "age":age,
@@ -362,6 +466,28 @@ def response(request):
         "last_period_month":last_period_month,
         "Weightbmi":Weightbmi,
         
+        
+        
+    }
+    return render(request,'main/output.html',context)
+
+
+def doctor_output(request):
+    form = DoctorOutputForm()
+    if request.method == 'POST':
+        form =DoctorOutputForm(request.POST)
+        if form.is_valid():
+           
+            form.save()
+            print('valid')
+            return redirect('/response')
+        else:
+            print('invalid')
+
+    
+
+    context={
+        "form":form,
         
     }
     return render(request,'main/output.html',context)
@@ -387,6 +513,10 @@ def doctor_output(request):
     }
 
     return render(request,'main/doctor_output.html',context)
+
+
+
+
     
 
     

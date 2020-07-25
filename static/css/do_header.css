@@ -1,0 +1,52 @@
+.navbar {
+    background-color: #163948;
+}
+.navbar-brand {
+color:white;
+font-size: 40px;
+font-family:monsterrat;
+letter-spacing: 5px;
+
+
+
+}
+a {
+color: white;
+padding-right: 40px;
+color: white;
+}
+
+#navbarCollapse {
+margin-left: 100px;
+}
+
+.navbar-nav {
+margin-left: 140px;
+font-family: "Montserrat", Sans-serif;
+
+}
+
+@media only screen and (max-width: 500px) {
+    .navbar-brand {
+        color:white;
+        font-size: 30px;
+        font-family:monsterrat;
+        letter-spacing: 0px;
+    }
+    a {
+        color: white;
+        padding-right: 0px;
+        color: white;
+        }
+
+        .navbar-nav {
+            margin-left: 0px;
+            font-family: "Montserrat", Sans-serif;
+            
+            }
+
+            .navbar {
+                background-color: #163948;
+                width: 280px;
+            }
+}

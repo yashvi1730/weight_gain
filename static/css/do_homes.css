@@ -1,0 +1,339 @@
+input, select, textarea {
+    width: 100%;
+    padding: 12px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    resize: vertical;
+  }
+  
+label {
+    padding: 12px 12px 12px 0;
+    display: inline-block;
+  }
+  
+input[type=submit]{
+    background-color:#163948;
+    color: white;
+    padding: 12px 20px;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    margin-left:900px;
+    
+    width:20%;
+  }
+  
+input[type=submit]:hover {
+    background-color: #163948;
+  }
+
+body {
+   font-family: open sans;
+   color: #54595F;
+   font-size: larger;
+}
+
+.container {
+    background-color:white;
+    border-color: #163948 ;
+    border-style: solid;
+    border-radius: 20px;
+    border-width: 7px;
+  }
+  
+#q1-r1 {
+    margin-left: 400px;
+  }
+  
+#q1-p1 {
+    font-size: 30px;
+    font-family: montserrat;
+    color: #163948 ;
+  }
+
+#q1-c1 {
+    color: #54595F;
+    font-family: lora;
+    font-size: larger;
+}
+
+#name {
+    width:300px;
+}
+
+#email {
+    width:300px;
+}
+
+#q2-r1 {
+    margin-left: 410px;
+}
+
+#q2-p1 {
+    font-size: 30px;
+    font-family: montserrat;
+    color: #163948 ;
+}
+
+#dob{
+    width:185px;
+}
+
+#weight {
+    width:170px;
+}
+
+#height_feet {
+    width:50px;
+}
+
+#height_inches {
+    width:60px;
+}
+
+#q3-r1 {
+   margin-left: 370px;
+   margin-bottom: -20px;
+}
+
+#q3-p1 {
+    font-size: 30px;
+    font-family: montserrat;
+    color: #163948 ;
+}
+
+#q3-r2 {
+    margin-left: 370px; 
+}
+
+#waist {
+    width:170px;
+}
+
+#hip {
+    width:170px;
+}
+
+#q4-l1 {
+    color: #54595F;
+    font-family: lora;
+    font-size: larger;
+}
+
+#purpose{
+    
+}
+
+#q5-l1 {
+    color: #54595F;
+    font-family: lora;
+    font-size: larger;
+}
+
+#ques6_1 {
+   margin-left: 5px;
+}
+
+#q6-p1 {
+    color: #54595F;
+    font-family: lora;
+    font-size: larger;
+}
+
+#ques6_2 {
+    padding-left: 370px;
+}
+
+#q6-r1 {
+    margin-bottom: -30px;
+}
+
+#ques6_31 {
+    margin:auto;
+}
+
+#ques6_32 {
+    margin:auto;
+}
+
+#ques6_33 {
+    margin:auto;
+}
+
+#ques6_34 {
+    margin:auto;
+    
+}
+
+#submit {
+    background-color:#163948;
+    margin-left: 500px;
+}
+
+.fa {  
+    padding: 20px;
+    font-size: 70px;
+    width: 50px;
+    text-align: left;
+    text-decoration: none;
+    
+  }
+
+  .fa:hover {
+      opacity: 0.7;
+  }
+
+  .fa-facebook {
+    background:#163948;
+    color: white;
+   
+  }
+
+  .fa-instagram {
+    background: #163948;
+    color: white;
+   
+  }
+
+  .fa-linkedin {
+    background:#163948;
+    color: white;
+    
+  }
+
+@media only screen and (max-width: 500px) {
+    .container {
+        background-color:white;
+        width: 1000px;
+        border-color: #163948 ;
+        border-style: solid;
+        border-radius: 20px;
+        border-width: 7px;
+        }
+
+    body {
+            font-family: open sans;
+            color: #54595F;
+            font-size:medium;
+         }
+
+    #q1-r1 {
+            margin-left: 300px;
+        }
+        
+    #q1-p1 {
+            font-size: 25px;
+            font-family: montserrat;
+            color: #163948 ;
+        }
+
+    #q1-c1 {
+            color: #54595F;
+            font-family: lora;
+            font-size: larger;
+        }
+        
+    #name {
+            width:150px;
+        }
+        
+    #email {
+            width:150px;
+        }
+
+    #q2-r1 {
+        margin-left: 300px;
+    }
+    
+    #q2-p1 {
+        font-size: 25px;
+        font-family: montserrat;
+        color: #163948 ;
+    }
+    
+    #dob{
+        width:150px;
+    }
+    
+    #weight {
+        width:150px;
+    }
+    
+    #height_feet {
+        width:40px;
+    }
+    
+    #height_inches {
+        width:50px;
+    }
+
+    #q3-r1 {
+        margin-left: 300px;
+        margin-bottom: -20px;
+     }
+     
+     #q3-p1 {
+         font-size: 25px;
+         font-family: montserrat;
+         color: #163948 ;
+     }
+     
+     #q3-r2 {
+         margin-left:300px; 
+     }
+     
+     #waist {
+         width:150px;
+     }
+     
+     #hip {
+         width:150px;
+     }
+
+     #q4-l1 {
+        color: #54595F;
+        font-family: lora;
+        font-size: larger;
+    }
+    
+     #purpose{
+         width: 400px;
+    }
+
+    #q5-l1 {
+        color: #54595F;
+        font-family: lora;
+        font-size: larger;
+    }
+
+    #have_baby {
+        width: 400px;
+    }
+
+    .header {
+        width: 1000px;
+    }
+    
+    #logo {
+        margin-left: -10px;
+    }
+
+    #submit {
+        background-color:#163948;
+        margin-left: 400px;
+    }
+
+    .fa {  
+        padding: 0px;
+        font-size: 20px;
+        width: 20px;
+        text-align: left;
+        text-decoration: none;
+        
+      }
+
+    
+
+    
+    
+  }
