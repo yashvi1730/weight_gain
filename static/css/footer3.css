@@ -1,9 +1,10 @@
 #f_submit {
-    width: 590px;
+    width: 650px;
     background-color: gray;
     border-radius: 5px;
     color: white;
     margin-top: 10px;
+    margin-left: 10px;
 }
 
 #comment {
@@ -15,10 +16,62 @@
 
 #comment1 {
     text-align: center;
+    font-family: sans-serif;
 }
 
 #comment2 {
-    margin-left:400px;
+    margin-left:520px;
+}
+
+#f_home {
+    font-size:large;
+    margin-left: 83px;
+
+}
+
+.fa {  
+    padding: 8px;
+    font-size: 10px;
+    width: 10px;
+    text-align: left;
+    text-decoration: none;
+    
+  }
+
+  .fa:hover {
+      opacity: 0.7;
+  }
+
+  .fa-facebook {
+    background:#163948;
+    color: white;
+   
+  }
+
+  .fa-instagram {
+    background: #163948;
+    color: white;
+   
+  }
+
+  .fa-linkedin {
+    background:#163948;
+    color: white;
+    
+  }
+
+#social {
+    margin-left: 79px;
+}
+
+#f_logo {
+    margin-left: 83px;
+    font-size: large;
+}
+
+#f_email {
+    width: 650px;
+    margin-left: 10px;
 }
 
 @media only screen and (max-width: 500px) {
@@ -52,5 +105,9 @@
     #comment2 {
         margin-left:50px;
 
+    }
+
+    #f_email {
+        width: 455px;
     }
 }

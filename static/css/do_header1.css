@@ -1,5 +1,10 @@
 .navbar {
     background-color: #163948;
+    
+}
+
+#logo {
+    margin-left: 35px;
 }
 .navbar-brand {
 color:white;
@@ -21,8 +26,9 @@ margin-left: 100px;
 }
 
 .navbar-nav {
-margin-left: 140px;
-font-family: "Montserrat", Sans-serif;
+margin-left: 305px;
+font-family:Montserrat;
+font-size: large;
 
 }
 

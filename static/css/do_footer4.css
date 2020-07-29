@@ -1,0 +1,142 @@
+#f_submit {
+    width: 650px;
+    background-color: gray;
+    border-radius: 5px;
+    color: white;
+    margin-top: 10px;
+    margin-left: 10px;
+}
+
+#comment {
+    font-family:sans-serif;
+    font-size: 35px;
+    text-align: center;
+    color: #163948;
+}
+
+#comment1 {
+    text-align: center;
+    font-family: sans-serif;
+}
+
+#comment2 {
+    margin-left:520px;
+}
+
+#f_home {
+    font-size:large;
+    margin-left: 83px;
+
+}
+
+.fa {  
+    padding: 8px;
+    font-size: 10px;
+    width: 10px;
+    text-align: left;
+    text-decoration: none;
+    
+  }
+
+  .fa:hover {
+      opacity: 0.7;
+  }
+
+  .fa-facebook {
+    background:#163948;
+    color: white;
+   
+  }
+
+  .fa-instagram {
+    background: #163948;
+    color: white;
+   
+  }
+
+  .fa-linkedin {
+    background:#163948;
+    color: white;
+    
+  }
+
+#social {
+    margin-left: 79px;
+}
+
+#f_logo {
+    margin-left: 83px;
+    font-size: large;
+}
+
+#f_email {
+    width: 650px;
+    margin-left: 10px;
+}
+
+
+
+@media only screen and (max-width: 500px) {
+    #f_submit {
+        width: 458px;
+        background-color: gray;
+        border-radius: 5px;
+        color: white;
+        margin-top: 10px;
+    }
+
+    footer {
+        width: 280px;
+    }
+
+    #f_1 {
+        margin-left:0px;
+     }
+
+     #f_2 {
+        font-size:medium;
+        margin-left: 0px;
+        color: white;
+    }
+
+    #f_3{
+        font-size: medium;
+        color: white;
+        margin-left: 0px;
+    }
+
+    #f_submit {
+       width: 90px;
+       background-color: gray;
+       border-radius: 5px;
+       color: white;
+       margin-top: 10px;
+    }
+
+    #f_email {
+       height: 50px;
+       width:90px;
+    }
+
+    #comment2 {
+        margin-left: 10px;
+    }
+
+    #f_home {
+        font-size:medium;
+        margin-left: 10px;
+    
+    }
+
+    #social {
+        margin-left: 0px;
+    }
+    
+    #f_logo {
+        margin-left: 10px;
+        font-size: medium;
+    }
+
+   
+    }
+}

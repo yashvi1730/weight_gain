@@ -5,10 +5,12 @@
     border-radius: 20px;
     border-width: 7px;
     width: 500px;
+    font-size: medium;
+    font-family: open sans;
 }
 
 #heading {
-    margin-left: 350px;
+    text-align: center;
     font-family: montserrat;
     font-size: 30px;
 }
@@ -23,8 +25,8 @@
 }
 
 #heading1{
-    margin-left: 350px;
-    font-family: Sans-serif;
+    text-align: center;
+    font-family: open sans;
     font-size: 15px;
 }
 
