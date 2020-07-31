@@ -7,7 +7,21 @@
     margin-left: 10px;
 }
 
+#comment {
+    font-family:sans-serif;
+    font-size: 35px;
+    text-align: center;
+    color: #163948;
+}
 
+#comment1 {
+    text-align: center;
+    font-family: sans-serif;
+}
+
+#comment2 {
+    margin-left:520px;
+}
 
 #f_home {
     font-size:large;
@@ -16,8 +30,8 @@
 }
 
 .fa {  
-    padding: 0px;
-   
+    padding: 8px;
+    font-size: 10px;
     width: 10px;
     text-align: left;
     text-decoration: none;
@@ -31,26 +45,23 @@
   .fa-facebook {
     background:#163948;
     color: white;
-    
+   
   }
 
   .fa-instagram {
     background: #163948;
     color: white;
    
-   
   }
 
   .fa-linkedin {
     background:#163948;
     color: white;
-   
     
   }
 
 #social {
-    margin-left: 65px;
-   
+    margin-left: 79px;
 }
 
 #f_logo {
@@ -63,17 +74,13 @@
     margin-left: 10px;
 }
 
-#submit {
-    background-color:#163948;
-    color: white;
-    padding: 12px 20px;
-    border: none;
-    border-radius: 4px;
-    cursor: pointer;
-    margin-left:600px;
-    
-    width:20%;
+footer {
+    bottom: 0px;
+    width: 100%;
+    position: fixed;
 }
+
+
 
 @media only screen and (max-width: 500px) {
     #f_submit {
@@ -85,11 +92,12 @@
     }
 
     footer {
-        width: 430px;
+        width: 100%;
+        position: relative;
     }
 
     #f_1 {
-        margin-left:60px;
+        margin-left:0px;
      }
 
      #f_2 {
@@ -105,7 +113,7 @@
     }
 
     #f_submit {
-       width: 180px;
+       width: 100%;
        background-color: gray;
        border-radius: 5px;
        color: white;
@@ -114,7 +122,7 @@
 
     #f_email {
        height: 50px;
-       width:180px;
+       width:100%;
     }
 
     #comment2 {
@@ -122,20 +130,20 @@
     }
 
     #f_home {
-        font-size:large;
+        font-size:medium;
         margin-left: 10px;
     
     }
 
     #social {
-        margin-left: 10px;
+        margin-left: 0px;
     }
     
     #f_logo {
         margin-left: 10px;
-        font-size: large;
+        font-size: medium;
     }
 
-    
-    
+   
+    }
 }

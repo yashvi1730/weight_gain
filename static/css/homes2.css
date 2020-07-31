@@ -172,6 +172,12 @@ body {
     margin-left: 500px;
 }
 
+#title {
+    font-family: Montserrat;
+    text-align:center;
+    color:#163948;
+    border-color: white;
+}
 
 @media only screen and (max-width: 500px) {
     .container {

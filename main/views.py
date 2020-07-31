@@ -42,6 +42,7 @@ def homepage(request):
 
 def output(request):
     appoint=Patient.objects.all().last()
+    
     if appoint.dob == None:
         age =""
     else:
@@ -225,8 +226,7 @@ def output(request):
 
     
 
-    print(appoint)
-    print(appoint.medicalAllergies)
+   
     context={
         "appoint":appoint,
         "age":age,

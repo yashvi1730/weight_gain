@@ -6,9 +6,9 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css" integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">
-    <link rel="stylesheet" href="{% static 'css/o_output3.css'%}">
-    <link rel="stylesheet" href="{% static 'css/o_header2.css'%}"/>
-    <link rel="stylesheet" href="{% static 'css/o_footer6.css'%}"/>
+    <link rel="stylesheet" href="{% static 'css/o_output4.css'%}">
+    <link rel="stylesheet" href="{% static 'css/o_header3.css'%}"/>
+    <link rel="stylesheet" href="{% static 'css/o_footer7.css'%}"/>
     <script src="https://html2canvas.hertzen.com/dist/html2canvas.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/1.3.4/jspdf.min.js"></script>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -55,7 +55,7 @@
     <div  class="container" >
         <div class="row" id="heading">
             <h1 style="font-family: Montserrat;color: #163948 ;"><b>Weight gain: Preliminary Assessment</b></h1>
-            <h2 id="appoint">Appointment Id:{{appoint.id}}</h2>
+            
         </div>
         <br/>
         <br/>
@@ -213,6 +213,11 @@
                     <tr id="t5-row2">
                         
                         <td  id="t5-col2">
+                            {% if appoint.sleepValue == None %}
+                            <p><b>N/A</b></p>
+                            
+                            {% else %}
+
                             <p >{{appoint.sleepValue}}{{appoint.get_sleepValueType_display}} hrs
 
                                 {% if appoint.sleepValue < 6.5 %}
@@ -223,6 +228,7 @@
                                    (Excess)
                                 {% endif %}
                                 </p>
+                            {% endif %}
                         </td>
                     </tr>
     
@@ -293,17 +299,17 @@
                         
 
 
-                            <p>Weight: {{appoint.weight}}</p>
+                            <p>Weight: {{appoint.weight}} kgs</p>
                             <p>Height: {{appoint.height_feet}} ft   {{appoint.height_inches}} inch </p>
 
                             <p id="t6-p1">
-                                Very severly underweight &nbsp; < 16 <br/>
-                                Severly underweight&nbsp;16.0 - 16.9<br/>
-                                Underweight  &nbsp;             17.0 - 18.4<br/>
-                                Normal      &nbsp;              18.8 - 24.9<br/>
-                                Overweight   &nbsp;             25.0 - 29.9<br/>
-                                Obese Class I   &nbsp;          30.0 - 34.9<br/>
-                                Obese Class II  &nbsp;          35.0 - 39.9<br/>
+                               <b> Very severly underweight</b> &nbsp; < 16 <br/>
+                               <b>Severly underweight</b>&nbsp;16.0 - 16.9<br/>
+                               <b>Underweight</b>  &nbsp;             17.0 - 18.4<br/>
+                               <b>Normal</b>      &nbsp;              18.5 - 24.9<br/>
+                               <b>Overweight</b>   &nbsp;             25.0 - 29.9<br/>
+                               <b>Obese Class I</b>   &nbsp;          30.0 - 34.9<br/>
+                               <b>Obese Class II</b>  &nbsp;          35.0 - 39.9<br/>
                                 <br/>
 
                                 

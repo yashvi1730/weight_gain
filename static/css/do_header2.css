@@ -53,6 +53,6 @@ font-size: large;
 
             .navbar {
                 background-color: #163948;
-                width: 280px;
+                width: 100%;
             }
 }
