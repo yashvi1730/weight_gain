@@ -1,0 +1,67 @@
+#submit1 {
+    position: relative;
+   
+    background-color:#163948;
+    color: white;
+    padding: 5px 2px;
+    border: none;
+    border-radius: 10px;
+    cursor: pointer;
+    margin-left: 1350px;
+    margin-right: 0px;
+    
+    width:10%;
+   
+}
+
+#submit2 {
+    position: relative;
+   
+    background-color:#163948;
+    color: white;
+    padding: 10px 2px;
+    border: none;
+    border-radius: 10px;
+    cursor: pointer;
+    margin-left: 630px;
+    margin-right: 0px;
+    font-size: larger;
+    
+    width:20%;
+   
+}
+
+
+
+@media only screen and (max-width: 500px) {
+
+    #submit1 {
+   
+        background-color:#163948;
+        color: white;
+        padding: 5px 2px;
+        border: none;
+        border-radius: 10px;
+        cursor: pointer;
+        margin-left:750px;
+        
+        width:70%;
+       
+    }
+
+    #submit2 {
+   
+        background-color:#163948;
+        color: white;
+        padding: 5px 2px;
+        border: none;
+        border-radius: 10px;
+        cursor: pointer;
+        margin-left:230px;
+        
+        width:70%;
+       
+    }
+
+   
+}
