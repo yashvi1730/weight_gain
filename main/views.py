@@ -16,7 +16,7 @@ def homepage(request):
             #instance.save()
             form.save()
             print('valid')
-            return redirect('/output')
+            return redirect('/www.proactiveforher.com/tools/weight-gain-patient-information/output')
         else:
             print('invalid')
 
