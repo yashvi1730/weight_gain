@@ -7,7 +7,7 @@
     border: none;
     border-radius: 10px;
     cursor: pointer;
-    margin-left: 1350px;
+    margin-left: 1250px;
     margin-right: 0px;
     
     width:10%;
@@ -17,7 +17,7 @@
 #submit2 {
     position: relative;
    
-    background-color:#163948;
+    background-color:yellow;
     color: white;
     padding: 10px 2px;
     border: none;
@@ -43,7 +43,7 @@
         border: none;
         border-radius: 10px;
         cursor: pointer;
-        margin-left:750px;
+        margin-left:650px;
         
         width:70%;
        
@@ -51,7 +51,7 @@
 
     #submit2 {
    
-        background-color:#163948;
+        background-color:yellow;
         color: white;
         padding: 5px 2px;
         border: none;
